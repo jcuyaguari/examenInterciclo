@@ -13,7 +13,9 @@
 
 
 <body onload="cambiar('uno')">
-
+    <header>
+        <h1 class='elegantshadow'>CRUD PRODUCTO</h1>
+    </header>
     <ul>
         <li>
 
@@ -40,7 +42,7 @@
 
         <li>
             <a href="#" onclick="cambiar('tres')">
-                <div class="name" data-text="Home">BUSCAR / ACTUALIZAR</div>
+                <div class="name" data-text="Home">BUSCAR ACTUALIZAR</div>
                 <div class="icon">
                     <i class="fa fa-telegram" aria-hidden="true"></i>
                     <i class="fa fa-telegram" aria-hidden="true"></i>
@@ -62,8 +64,48 @@
     </ul>
 
     <div id='uno'>
-        <p>codigo crear</p>
-        <p>PUEDE IR LOS DIV LOS FORM LOS QUE QUIERAN </p>
+        <table border>
+            <tr>
+                <td><label for="nombre">Nombre(*)</label></td>
+                <td><input class="txt" type="text" id="nombre" name="nombre" value="" placeholder="Ingrese el nombre del producto" required><br>
+                </td>
+            </tr>
+
+            <tr>
+                <td><label for="tipo">Tipo(*)</label></td>
+                <td><select class="txt" id='tipo' name='tipo' required>
+                        <option value="Planta">Planta</option>
+                        <option value="Arreglo">Arreglo</option>
+                        <option value="Flor">Flor</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td><label for="precio">Precio(*)</label></td>
+                <td><input class="txt" type="number" id="precio" name="precio" value="" placeholder="Ingrese precio del producto" required /><br>
+            </tr>
+
+            <tr>
+                <td><label for="stock">Stock(*)</label></td>
+                <td><input class="txt" type="number" id="stock" name="stock" value="" placeholder="Ingrese cantidad de productos a ingresar" required /><br>
+            </tr>
+
+
+            <tr>
+                <td><label for="imagen">Imagen(*)</label></td>
+                <td style="text-align: center">
+                    <div id="imagen" style=" width: 383px; height: 220px;">
+                    </div>
+                    <input type="button" id="btnImagen" value="Cargar iamgen" onclick="onButtonClicked()">
+                </td>
+            </tr>
+            <tr>
+                <td colspan=" 2" style="text-align: center">
+                    <input class="txt" type="button" id="enviar" name="enviar" value="GUARDAR PRODUCTO" onclick="guardarProducto()" />
+                </td>
+            </tr>
+        </table border>
     </div>
 
     <div id='dos'>

@@ -8,7 +8,7 @@ body{
 
 ul{
     position: absolute;
-    top: 10%;/*para posicion arriba abajo todo el menu*/
+    top: 20%;/*para posicion arriba abajo todo el menu*/
     left: 50%;/*para posicion izq-der*/
     transform: translate(-50%, -50%);
     margin: 1px; 
@@ -63,7 +63,7 @@ ul li a:hover .icon .fa{
 h1 {
     font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
     font-size: 15px;
-    padding: 40px 40px;
+    padding: 40px 30px;
     text-align: center;
     text-transform: uppercase;
     text-rendering: optimizeLegibility;
@@ -74,16 +74,32 @@ h1.elegantshadow {
   letter-spacing: 0.1em;
   text-shadow: -1px -1px 1px #111, 2px 2px 1px #363636;
   }
-  
- 
 
- #uno, #dos, #tres, #cuatro{
+.txt{
+    width:  380px;
+}
+
+input{
+    font-size: 15px;
+}
+ legend{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 150%;
+    text-align: center;
+    color:lawngreen;
+}
+
+ #uno{
     position: absolute;
-    top: 17%;
+    top: -5%;
     left: 50%;
     transform: translate(-50%, 50%);
     background: rgb(136, 216, 248); 
-    border-radius: 10px;
+    border-radius: 10px ;
     margin: 1 center;
     padding: 10px 20px;
+}
+
+img{
+    height: 150px;
 }
