@@ -88,7 +88,8 @@ function guardarProducto() {
             }
             xmlhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
-                    console.log(this.responseText);
+                    var res = this.responseText;
+                    alert(res)
 
                 }
             };
@@ -101,11 +102,4 @@ function guardarProducto() {
     } else {
         alert("Carge la Imagen")
     }
-}
-
-var reader = new window.FileReader();
-reader.readAsDataURL(blob);
-reader.onloadend = function () {
-    base64data = reader.result;
-    console.log(base64data);
 }

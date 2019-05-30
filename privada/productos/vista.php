@@ -13,6 +13,10 @@
 
 
 <body onload="cambiar('uno')">
+    <?php
+    include '../../config/conexionBD.php';
+    ?>
+
     <header>
         <h1 class='elegantshadow'>CRUD PRODUCTO</h1>
     </header>
@@ -97,7 +101,7 @@
                 <td style="text-align: center">
                     <div id="imagen" style=" width: 383px; height: 220px;">
                     </div>
-                    <input type="button" id="btnImagen" value="Cargar iamgen" onclick="onButtonClicked()">
+                    <input type="file" onclick="onButtonClicked()" value="cargarImagen">
                 </td>
             </tr>
             <tr>
@@ -109,8 +113,34 @@
     </div>
 
     <div id='dos'>
-        <p>codigo listar</p>
-        <p>PUEDE IR LOS DIV LOS FORM LOS QUE QUIERAN </p>
+        <table border>
+            <tr>
+                <th>NOMBRE</th>
+                <th>PRECIO</th>
+                <th>STOCK</th>
+                <th>IMAGEN</th>
+            </tr>
+
+            <?php
+
+            $sql = "SELECT * FROM productos";
+            $result = $conn->query($sql);
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo "<tr>";
+                    echo " <td>" . $row["pro_nombre"] . "</td>";
+                    echo " <td>" . $row['pro_precio'] . "</td>";
+                    echo " <td>" . $row['pro_stock'] . "</td>";
+                    echo " <td>" . $row['pro_imagen'] . "</td>";
+                }
+            } else {
+                echo "<tr>";
+                echo " <td colspan='7'> No existen correos </td> ";
+                echo "</tr>";
+            }
+            ?>
+        </table border>
+
     </div>
     <div id='tres'>
         <p>codigo buscar / modificar</p>
@@ -120,7 +150,9 @@
         <p>codigo ELIMINAR</p>
         <p>PUEDE IR LOS DIV LOS FORM LOS QUE QUIERAN </p>
     </div>
-
+    <?php
+    $conn->close();
+    ?>
 </body>
 <section>
 

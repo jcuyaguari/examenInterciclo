@@ -91,7 +91,7 @@ input{
 
  #uno{
     position: absolute;
-    top: -5%;
+    top: 5%;
     left: 50%;
     transform: translate(-50%, 50%);
     background: rgb(136, 216, 248); 
@@ -102,4 +102,15 @@ input{
 
 img{
     height: 150px;
+}
+
+#dos{
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    background: rgb(136, 216, 248); 
+    border-radius: 10px ;
+    margin: 1 center;
+    padding: 10px 20px;
 }
