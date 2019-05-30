@@ -18,6 +18,8 @@
             $img = ($_GET['img']);
             $image = new Imagick();
             $image->readimageblob($img);
+
+            $sql = "insert into prodocto";
             echo '<img src="data:image/png;base64,' .  base64_encode($image->getimageblob())  . '" />';
             echo "<p>$nombre </p>";
             echo "<p>$tipo </p>";
