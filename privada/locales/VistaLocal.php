@@ -6,11 +6,12 @@
         Locales
     </title>
     <script type="text/javascript" src="metodos.js"></script>
+    <link href="estilo.css" rel="stylesheet" />
 </head>
 
 <body onload="cambiar('1')">
     <?php
-    include '../config/conexionBD.php';
+    include '../../config/conexionBD.php';
     ?>
     <input type="button" onclick="cambiar('1')" value="A&Ntilde;ADIR NUEVO LOCAL">
 
@@ -26,6 +27,7 @@
             <th>DIRECCION</th>
             <th>TELEFONO</th>
         </tr>
+    </table>
         <?php
         $sql = "SELECT * FROM local";
         $result = $conn->query($sql);

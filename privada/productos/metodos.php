@@ -16,6 +16,7 @@
             $precio = ($_GET['precio']);
             $stock = ($_GET['stock']);
             $img = ($_GET['img']);
+<<<<<<< HEAD
 
             $sql = "INSERT INTO productos VALUES (0, '$nombre', '$tipo', '$precio', '$stock', '$img',0)";
             if ($conn->query($sql) === TRUE) {
@@ -28,6 +29,18 @@
                 }
             }
             //cerrar la base de datos
+=======
+            $image = new Imagick();
+            $image->readimageblob($img);
+
+            $sql = "insert into prodocto";
+            echo '<img src="data:image/png;base64,' .  base64_encode($image->getimageblob())  . '" />';
+            echo "<p>$nombre </p>";
+            echo "<p>$tipo </p>";
+            echo "<p>$precio </p>";
+            echo "<p>$stock ddd </p>";
+            echo "<p>$img </p>";
+>>>>>>> 6bece62030a40f2969869c6f79c2e0ca57d9ba14
             break;
         default:
             # code...
