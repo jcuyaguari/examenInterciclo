@@ -19,27 +19,111 @@
 
     <input type="button" onclick="cambiar('3')" value="ELIMINAR LOCAL">
 
-    <table id='tab_local' style="border-style: solid">
-        <tr>
 
-            <th>ID</th>
+
+    <form id="form" method="POST">
+        <div id='1'>
+            <h1>A&Ntilde;ADIR NUEVO LOCAL</h1>
+            <fieldset>
+                <legend>Nuevo Local</legend>
+                <label for="nombres">Ingresar nombre</label>
+                <br>
+                <input type="text" id="nombre" name="nombre" value="" placeholder="NOMBRE" />
+
+                <br>
+                <label for="direccion">Ingresar la direccion</label>
+                <br>
+                <input type="text" id="direccion" name="direccion" value="" placeholder="DIRECCION" />
+                <br>
+                <label for="telefono">Ingresar el telefono</label>
+                <br>
+                <input type="text" id="telefono" name="telefono" value="" placeholder="TELEFONO" />
+                <br>
+                <label for="descripcion">Ingresar la direccion</label>
+                <br>
+                <input type="text" id="descripcion" name="descripcion" value="" placeholder="DESCRIPCION" />
+                <br><br>
+                <input class="txt" type="button" id="enviar" name="enviar" value="ACEPTAR" onclick="crearLocal()" />
+                <input type="button" id="salir" name="salir" value="SALIR" />
+                <br>
+            </fieldset>
+        </div>
+        <div id='2'>
+            <h1>EDITAR LOCAL</h1>
+            <form>
+
+                <fieldset>
+                    <legend>Elegir local</legend>
+
+                    <label for="nombres">Ingresar el id del local que desea editar</label>
+                    <br>
+                    <input type="text" id="nombreBuscar" name="nombreBuscar" value="" placeholder="Ingrese el nombre del local" />
+                    <input class="txt" type="button" id="enviar" name="enviar" value="BUSCAR" onclick="$a=nombreBuscar" />
+                    <p></p>
+
+                    <br>
+                </fieldset>
+                <fieldset>
+                    <legend>Editar Local</legend>
+                    <label for="nombre">Ingresar el nuevo nombre</label>
+                    <br>
+                    <input type="text" id="nombreNuevo" name="nombreNuevo" value="" placeholder="" />
+                    <br>
+                    <label for="direccion">Ingresar la nueva direccion</label>
+                    <br>
+                    <input type="text" id="direccionNueva" name="direccionNueva" value="" placeholder="" />
+                    <br>
+                    <label for="telefono">Ingresar el nuevo telefono</label>
+                    <br>
+                    <input type="text" id="telefonoNuevo" name="telefonoNuevo" value="" placeholder="" />
+                    <br>
+                    <label for="descripcion">Ingresar la nueva descripcion</label>
+                    <br>
+                    <input type="text" id="descripcionNueva" name="descripcionNueva" value="" placeholder="" />
+                    <br>
+                    <input class="txt" type="button" id="enviar" name="enviar" value="ACTUALIZAR" onclick="actualizarLocal()" />
+                </fieldset>
+
+            </form>
+        </div>
+        <div id='3'>
+            <h1>ELIMINAR LOCAL</h1>
+            <form>
+                <fieldset>
+                    <legend>Eliminar Local</legend>
+                    <label for="nombres">Ingresar el nombre del local que desea eliminar</label>
+                    <br>
+                    <input type="text" id="nombreEliminar" name="nombreEliminar" value="" placeholder="Ingrese correctamente el nombre" />
+                    <input class="txt" type="button" id="eliminar" name="eliminar" value="ELIMINAR" onclick="eliminarLocal()" />
+                    <br>
+                </fieldset>
+            </form>
+        </div>
+    </form>
+    <table id='tab_local' border>
+
+        <tr>
+            <br>
             <th>NOMBRE</th>
             <th>DIRECCION</th>
             <th>TELEFONO</th>
+            <th>DESCRIPCION</th>
         </tr>
-    </table>
+
+
         <?php
-        $sql = "SELECT * FROM local";
+        $sql = "SELECT * FROM local where loc_eliminado='0'";
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
 
             while ($row = $result->fetch_assoc()) {
                 echo "<tr>";
-                echo " <td>" . $row["loc_id"] . "</td>";
                 echo " <td>" . $row['loc_nombre'] . "</td>";
                 echo " <td>" . $row['loc_direccion'] . "</td>";
                 echo " <td>" . $row['loc_telefono'] . "</td>";
+                echo " <td>" . $row["loc_descripcion"] . "</td>";
+                #echo "<br>";
             }
         } else {
 
@@ -49,81 +133,7 @@
         }
 
         ?>
-        <form id="form" method="POST">
-            <div id='1'>
-                <h1>A&Ntilde;ADIR NUEVO LOCAL</h1>
-                <fieldset>
-                        <legend>Nuevo Local</legend>
-                        <label for="id">Ingresar id</label>
-                        <br>
-                        <input type="int" id="id" name="id" value="" placeholder="ID" />
-                        <br>
-                        <label for="nombres">Ingresar nombre</label>
-                        <br>
-                        <input type="text" id="nombre" name="nombre" value="" placeholder="NOMBRE" />
-
-                        <br>
-                        <label for="direccion">Ingresar la direccion</label>
-                        <br>
-                        <input type="text" id="direccion" name="direccion" value="" placeholder="DIRECCION" />
-
-                        <br>
-                        <label for="telefono">Ingresar el telefono</label>
-                        <br>
-                        <input type="text" id="telefono" name="telefono" value="" placeholder="TELEFONO" />
-                        <br><br>
-                        <input type="button" id="aceptar" name="aceptar" value="ACEPTAR" />
-                        <input type="button" id="salir" name="salir" value="SALIR" />
-                        <br>
-                    </fieldset>
-            </div>
-            <div id='2'>
-                <h1>EDITAR LOCAL</h1>
-                <form>
-
-                    <fieldset>
-                        <legend>Elegir local</legend>
-                        <label for="nombres">Ingresar el id del local que desea editar</label>
-                        <br>
-                        <input type="int" id="id" name="id" value="" placeholder="Ingrese solo un numero" />
-                        <input type="button" id="editar" name="editar" value="editar" />
-                        <br>
-                    </fieldset>
-                    <fieldset disabled="true">
-                        <legend>Editar Local</legend>
-                        <label for="nombres">Ingresar el nuevo nombre</label>
-                        <br>
-                        <input type="int" id="id" name="id" value="" placeholder="NOMBRE" />
-                        <input type="button" id="editar" name="editar" value="editar" />
-                        <br>
-                        <label for="nombres">Ingresar la nueva direccion</label>
-                        <br>
-                        <input type="int" id="id" name="id" value="" placeholder="DIRECCION" />
-                        <input type="button" id="editar" name="editar" value="editar" />
-                        <br>
-                        <label for="nombres">Ingresar el nuevo telefono</label>
-                        <br>
-                        <input type="int" id="id" name="id" value="" placeholder="TELEFONO" />
-                        <input type="button" id="editar" name="editar" value="editar" />
-                        <br>
-                    </fieldset>
-
-                </form>
-            </div>
-            <div id='3'>
-                <h1>ELIMINAR LOCAL</h1>
-                <form>
-                    <fieldset>
-                        <legend>Eliminar Local</legend>
-                        <label for="nombres">Ingresar el id del local que desea eliminar</label>
-                        <br>
-                        <input type="int" id="id" name="id" value="" placeholder="Ingrese solo un numero" />
-                        <input type="button" id="eliminar" name="eliminar" value="Eliminar" />
-                        <br>
-                    </fieldset>
-                </form>
-            </div>
-        </form>
+    </table border>
 </body>
 
 </html>
