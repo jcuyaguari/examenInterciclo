@@ -27,6 +27,80 @@ function cambiar(opc) {
     }
 }
 
-function crearlocal(){
-    
+function crearLocal() {
+
+    var nombre = document.getElementById('nombre').value;
+    var direccion = document.getElementById('direccion').value;
+    var telefono = document.getElementById('telefono').value;
+    var descripcion = document.getElementById('descripcion').value;
+
+    if (nombre != "" && direccion != "" && telefono != "" && descripcion != "") {
+        if (window.XMLHttpRequest) {
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                var res = this.responseText;
+                alert('Local Guardado')
+                document.location.reload();
+
+            }
+        };
+        xmlhttp.open("GET", "baseLocales.php?opc=crear&nombre=" + nombre + "&direccion=" + direccion + "&telefono=" + telefono +
+            "&descripcion=" + descripcion, true);
+        xmlhttp.send();
+    } else {
+        alert('No Rebice los datos')
+    }
+}
+
+function actualizarLocal(){
+    var nombre = document.getElementById('nombrenombreNuevo').value;
+    var direccion = document.getElementById('direccionNueva').value;
+    var telefono = document.getElementById('telefonoNuevo').value;
+    var descripcion = document.getElementById('descripcionNueva').value;
+
+    if (nombre != "" && direccion != "" && telefono != "" && descripcion != "") {
+        if (window.XMLHttpRequest) {
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                var res = this.responseText;
+                alert('Local Guardado')
+                document.location.reload();
+
+            }
+        };
+        xmlhttp.open("GET", "baseLocales.php?opc=modificar&nombre=" + nombre + "&direccion=" + direccion + "&telefono=" + telefono +
+            "&descripcion=" + descripcion, true);
+        xmlhttp.send();
+    } else {
+        alert('No Rebice los datos')
+    }
+}
+
+function eliminarLocal(){
+    var nombre = document.getElementById('nombreEliminar').value;
+    if (nombre != "") {
+        if (window.XMLHttpRequest) {
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                alert('Local Elminado')
+                document.location.reload();
+            }
+        };
+        xmlhttp.open("GET", "baseLocales.php?opc=eliminar&nombre=" + nombre, true);
+        xmlhttp.send();
+    } else {
+        alert('No Rebice los datos para eliminar')
+    }
 }
