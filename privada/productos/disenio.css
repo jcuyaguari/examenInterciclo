@@ -79,17 +79,15 @@ h1.elegantshadow {
     width:  380px;
 }
 
-input{
-    font-size: 15px;
+#list{
+    height: 245px;
 }
  legend{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 150%;
     text-align: center;
     color:lawngreen;
-}
-
- #uno{
+}#uno{
     position: absolute;
     top: 5%;
     left: 50%;
@@ -100,11 +98,32 @@ input{
     padding: 10px 20px;
 }
 
-img{
-    height: 150px;
+#actualizacion{
+    height: 400px;
 }
 
 #dos{
+    position: initial;
+    margin-top: 150px;
+    margin-left: 32%;
+    margin-inline-end: 31%;
+    background: rgb(136, 216, 248); 
+    border-radius: 10px ;
+    padding: 10px 20px;
+}
+
+#tres{
+    position: initial;
+    margin-top: 150px;
+    margin-left: 32%;
+    margin-inline-end: 31%;
+    background: rgb(136, 216, 248); 
+    border-radius: 10px ;
+    padding: 10px 20px;
+}
+
+
+#cuatro{
     position: absolute;
     top: 5%;
     left: 50%;
@@ -114,3 +133,7 @@ img{
     margin: 1 center;
     padding: 10px 20px;
 }
+
+
+
+
