@@ -46,3 +46,15 @@ CREATE TABLE `usuario` (
 PRIMARY KEY (`usu_codigo`),
 UNIQUE KEY `usu_cedula` (`usu_cedula`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+
+
+
+********CREACION de pedido *************
+CREATE TABLE `pedido` (
+`ped_codigo` int(11) NOT NULL AUTO_INCREMENT,
+`ped_fecha` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+`ped_cod_user` int(11) NOT NULL,
+`ped_estado` varchar(50) NOT NULL,
+`usu_eliminado` boolean NOT NULL DEFAULT '0',
+PRIMARY KEY (`ped_codigo`))
+ ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
