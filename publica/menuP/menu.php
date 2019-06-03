@@ -96,7 +96,7 @@ $Codigo = $_GET['codigo'];
                 </ul>
             </nav>
             <ul></ul>
-            <h1 class='elegantshadow'>Floristeria "La Casa de las Flores"<input type="button" onclick="cambiar('1')" value="admi" class="admi"></h1>
+            <h1 class='elegantshadow'>Floristeria "La Casa de las Flores"<input type="button" onclick="administrador(<?php echo $Codigo  ?>)" value="admi" class="admi"></h1>
 
         </header>
 

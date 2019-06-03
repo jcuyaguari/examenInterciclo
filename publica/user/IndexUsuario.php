@@ -57,7 +57,7 @@
             <input type="text" id="rol" name="rol" value="<?php echo $row["usu_rol"]; ?>" />
             <br>
             <input class="txt" type="button" id="eliminar" name="eliminar" value="ELIMINAR" onclick="eliminarUsuario()" />
-            <input type="reset" id="regresar" name="regresar" value="REGRESAR" onclick="location.href='../menuP/menu.php'">
+            <input type="reset" id="regresar" name="regresar" value="REGRESAR" onclick="location.href='../menuP/menu.php?codigo=<?php echo '$codigo'?>'">
             <input type="reset" id="salir" name="salir" value="SALIR" onclick="location.href='login.html'">
 
 

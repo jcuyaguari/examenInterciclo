@@ -163,7 +163,7 @@ function carrito() {
             res = resp.indexOf('**T**');
             if (res != -1) {
                 alert("PRODUCTO CREADO")
-               // document.location.reload();
+                // document.location.reload();
             } else {
                 res = resp.indexOf('**N**');
                 if (res != -1) {
@@ -171,10 +171,14 @@ function carrito() {
                 } else {
                     alert('No se pudo guardar>>');
                 }
-    
+
             }
         });
     } else {
         alert('Debe selecionar uno o mas productos')
     }
+}
+
+function administrador(cod) {
+
 }
