@@ -92,10 +92,9 @@
 
             </ul>
         </nav>
-
-        <h1 class='elegantshadow'>Floristeria "La Casa de las Flores"</h1>
-            <div class="admi"><input type="button" onclick="cambiar('1')" value="admi"></div>
-
+    <ul></ul>
+        <h1 class='elegantshadow'>Floristeria "La Casa de las Flores"<input type="button" onclick="cambiar('1')" value="admi" class="admi"></h1>
+        
     </header>
     
     <div class="contenedor" style="border: solid 2px red" id='uno'>
@@ -235,15 +234,34 @@
         <section>
             <article>
                 <h1>Vision</h1>
-                <p>Ofrecer productos de calidad e interés general, muy participativo,
+                <p>Ser la empresa líder en Ecuador, reconocida por la calidad, excelencia operativa
+                    y continua innovación, impulsada por el talento de nuestra gente, guiada por un
+                    modelo de negocio que comparte el riesgo y la rentabilidad.
+                    Ofrecer productos de calidad e interés general, muy participativo,
                     y promover lo nuestro, con una excelente atencion, decorado
                     producción y estilo único, estableciendo asi una excelente relacion,
                     con el cliente.
                     Además de ofrecer nuestro producto a tarifas y planes de inversión
                     adaptadas a la realidad económica del país a nivel nacional e internacional
                     llegando a todo el mundo.
+                    Inspirar y crear, dos actos que van de la mano.
+                    Creacion.
+
+                    <li>Una empresa con marcas líderes y confiables para nuestros consumidores.</li>
+                    <li>El proveedor preferido de nuestros clientes.</li>
+                    <li>Una empresa innovadora, que mira hacia el futuro.</li>
+                    <li>Una empresa financieramente sólida.</li>
+                    <li> Un lugar extraordinario para trabajar.</li>
+                    <br>
+                    Trabajamos para crear un mejor futuro todos los días; Ayudamos a la gente a 
+                    sentirse bien, verse bien y mejorar su calidad de vida con marcas y servicios 
+                    que son buenos para ellos y para otros; 
+                    Inspiramos a la gente para que tome pequeñas acciones en el día 
+                    a día que pueden hacer una gran diferencia en el mundo.
+                    
                 </p>
-                <img class="imgT" id="imgRenderizable" src="img/m1.jpg" alt="">
+                <!-- <img class="imgT" id="imgRenderizable" src="img/m1.jpg" alt=""> -->
+                <iframe width="860" height="615" src="https://www.youtube.com/embed/8KYiKkPWvMs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </article>
         </section>
     </div>

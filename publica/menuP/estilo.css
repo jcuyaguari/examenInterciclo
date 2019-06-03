@@ -139,9 +139,11 @@ h1 {
 .admi{
     position: absolute;
     left: 20px;
-    margin-left: 1390px;   
+    margin-left: 1443px;  
     font-size: 1.2em;
     color: #FFF;
+padding:0,5%;
+border-block-end: 2%;
 
 }
 
