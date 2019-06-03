@@ -1,6 +1,5 @@
 
-var listaCodigo  = new Array();
-var listaCantidad = new Array();
+var lista  = new Array();
 function cambiar(opc) {
     switch (opc) {
         case 'uno':
@@ -126,8 +125,8 @@ function cantidad(num, val, cod) {
             var retVal = prompt("Ingrese Canidad: ");
             if (isNaN(retVal) == false) {
                 if (retVal <= num) {
-                    //Lenar carrito
-                    bandera = false;
+                    lista[cod] = retVal;
+                    bandera= false;
                 } else {
                     alert('Debe ser un numero menor a ' + num + ' ya que solo se dispone de esas unidades');
                 }
@@ -140,4 +139,8 @@ function cantidad(num, val, cod) {
         //quitar de la lista
     }
 
+}
+
+function carrito(){
+    
 }
