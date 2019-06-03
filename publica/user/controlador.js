@@ -329,7 +329,6 @@ function actualizarUsuario() {
                 var res = this.responseText;
                 alert('Se actualizo');
                 document.location.reload();
-
             }
         };
         xmlhttp.open("POST", "metodos.php", true);
