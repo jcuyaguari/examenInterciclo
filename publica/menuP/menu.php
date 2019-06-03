@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-$Codigo =$_GET['codigo'];
+$Codigo =trim($_GET['codigo']);
 ?>
 
 <head>
