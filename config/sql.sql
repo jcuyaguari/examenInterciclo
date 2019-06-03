@@ -66,8 +66,8 @@ REFERENCES `usuario` (`usu_codigo`))
 *****detalle pedido*****
 CREATE TABLE IF NOT EXISTS `Det_Ped` (
   `det_ped_id` int(11) NOT NULL AUTO_INCREMENT,
-  `det_ped_producto` VARCHAR(50) NOT NULL,
-  `det_ped_pedido` VARCHAR(50) NOT NULL,
+  `det_ped_producto` int(11)NOT NULL,
+  `det_ped_pedido` int(11) NOT NULL,
   `det_ped_cantidad` VARCHAR(50) NOT NULL,
 
   PRIMARY KEY (`det_ped_id`),
