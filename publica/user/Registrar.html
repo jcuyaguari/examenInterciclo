@@ -15,10 +15,11 @@
         <h1 class='elegantshadow'>Floristeria "La Casa de las Flores"</h1>
     </header>
     <div>
+        <input type="reset" id="login" name="login" value="YA TENGO CUENTA" onclick="location.href='login.html'" />
         <form id="formUser" method="POST" action="pasa.php" onsubmit="return validarTodo()">
 
             <fieldset>
-                <input id="opc" name="opc" value="crear" hidden  />
+                <input id="opc" name="opc" value="crear" hidden />
                 <legend>Creacion de usuarios</legend>
                 <label for="cedula">Cedula (*)</label>
                 <input type="text" id="cedula" name="cedula" value="" placeholder="Ingrese el número de cedula ..."
@@ -51,7 +52,7 @@
                 <span id="mensajeFecha"></span>
                 <br>
                 <label for="correo">Correo electrónico (*)</label>
-                <input type="text" id="correo" name="correo" value="" placeholder="Ingrese su correo electrónico..."/>
+                <input type="text" id="correo" name="correo" value="" placeholder="Ingrese su correo electrónico..." />
                 <span id="mensajeCorreo"></span>
                 <br>
                 <label for="correo">Contraseña (*)</label>
@@ -59,13 +60,13 @@
                     placeholder="Ingrese su contraseña ..." />
                 <span id="mensajeContrasena"></span>
                 <br>
-                
-                <label for="rol">Tipo de Usuario (*)</label>
-                <input list="browsers" name="rol" id="rol" value="USER" disabled= "disabled" >
-                <br>
-                <input type="button" id="crear" name="crear" value="Guardar Usuario" onclick="guardarCliente()"/>
-                <input type="reset" id="cancelar" name="cancelar" value="Cancelar" onclick="location.href='login.ht'" />
 
+                <label for="rol">Tipo de Usuario (*)</label>
+                <input list="browsers" name="rol" id="rol" value="USER" disabled="disabled">
+                <br>
+                <input type="button" id="crear" name="crear" value="Guardar Usuario" onclick="guardarCliente()" />
+                <input type="reset" id="cancelar" name="cancelar" value="Cancelar"
+                    onclick="location.href='../menuP/menu.php'" />
             </fieldset>
         </form>
     </div>
