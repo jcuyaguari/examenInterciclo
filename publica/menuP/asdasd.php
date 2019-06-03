@@ -6,7 +6,7 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Page Title</title>
     <link rel='stylesheet' type='text/css' media='screen' href='estilo.css'>
-    <script src='main.js'></script>
+    <script src="cambiar.js"></script>
 </head>
 
 <body>
@@ -21,9 +21,9 @@
                 <?php echo '<img style="width: 383px; height: 245px;" src="data:image/jpg;base64,' . base64_encode($row['pro_imagen']) . '">'; ?>
                 <h1 style="border: double  black 10px;"> <?php echo $row['pro_nombre']; ?></h1>
                 <b style="border: dotted  black 2px;"> <?php echo "$ " . $row['pro_precio'] ?></b> <br><br>
-                <i style="border: solid  black 2px;"> <?php echo "Unidades Disponibles" . $row['pro_stock']; ?></i><br><br>
+                <i style="border: solid  black 2px;"> <?php echo "Unidades Disponibles: " . $row['pro_stock']; ?></i><br><br>
                 <label class="switch">
-                    <input type="checkbox">
+                    <input type="checkbox" onclick="cantidad(<?php echo $row['pro_stock']; ?>, this, <?php echo $row['pro_codigo']; ?>)">
                     <span class="slider"></span>
                 </label>
 
