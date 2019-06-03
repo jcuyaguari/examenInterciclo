@@ -15,7 +15,7 @@ function cambiar(opc) {
             element1.style.display = 'block';
             var element2 = document.getElementById('tres');
             element2.style.display = 'none';
-            
+
             break;
 
         case 'tres':
@@ -25,7 +25,7 @@ function cambiar(opc) {
             element1.style.display = 'none';
             var element2 = document.getElementById('tres');
             element2.style.display = 'block';
-            
+
             break;
     }
 }
@@ -274,7 +274,7 @@ function iniciar() {
                 if (res != -1) {
                     document.getElementById('respuesta').innerHTML = this.responseText;
                     var $codigo = document.getElementById('codigo').value;
-                    alert($codigo);
+
                     location.href = '../menuP/menu.php?codigo=' + $codigo;
                 } else {
                     alert("USUARIO NO ENCONTRADO");
@@ -289,5 +289,31 @@ function iniciar() {
         xmlhttp.send("opc=iniciar&correo=" + $correo + "&contrasena=" + $contrasena);
     } else {
         alert('datos vacios')
+    }
+}
+
+function eliminarUsuario() {
+    
+    $cedula = document.getElementById('cedulaUsu').value;
+    if ($cedula != "") {
+        if (window.XMLHttpRequest) {
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                var res = this.responseText;
+                location.href = 'login.html';
+            }
+        };
+
+
+        xmlhttp.open("POST", "metodos.php", true);
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlhttp.send("opc=eliminar&cedula=" + $cedula );
+
+    } else {
+        alert('No Rebice los datos para eliminar')
     }
 }

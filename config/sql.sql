@@ -40,7 +40,7 @@ CREATE TABLE `usuario` (
 `usu_password` varchar(255) NOT NULL,
 `usu_fecha_nacimiento` date NOT NULL,
 `usu_eliminado` varchar(10) NOT NULL DEFAULT 'N',
-`usu_fecha_creacion` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+`usu_fecha_creacion` timestamp NULL DEFAULT NULL,
 `usu_fecha_modificacion` timestamp NULL DEFAULT NULL,
 `usu_rol` varchar(20) DEFAULT NULL,
 PRIMARY KEY (`usu_codigo`),
