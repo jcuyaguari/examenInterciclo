@@ -54,34 +54,14 @@
 
                 <fieldset>
                     <legend>Elegir local</legend>
-
                     <label for="nombres">Ingresar el id del local que desea editar</label>
                     <br>
                     <input type="text" id="nombreBuscar" name="nombreBuscar" value="" placeholder="Ingrese el nombre del local" />
-                    <input class="txt" type="button" id="enviar" name="enviar" value="BUSCAR" onclick="$a=nombreBuscar" />
-                    <p></p>
-
+                    <input class="txt" type="button" id="enviar" name="enviar" value="BUSCAR" onclick="buscarLocal()" />
                     <br>
                 </fieldset>
-                <fieldset>
-                    <legend>Editar Local</legend>
-                    <label for="nombre">Ingresar el nuevo nombre</label>
-                    <br>
-                    <input type="text" id="nombreNuevo" name="nombreNuevo" value="" placeholder="" />
-                    <br>
-                    <label for="direccion">Ingresar la nueva direccion</label>
-                    <br>
-                    <input type="text" id="direccionNueva" name="direccionNueva" value="" placeholder="" />
-                    <br>
-                    <label for="telefono">Ingresar el nuevo telefono</label>
-                    <br>
-                    <input type="text" id="telefonoNuevo" name="telefonoNuevo" value="" placeholder="" />
-                    <br>
-                    <label for="descripcion">Ingresar la nueva descripcion</label>
-                    <br>
-                    <input type="text" id="descripcionNueva" name="descripcionNueva" value="" placeholder="" />
-                    <br>
-                    <input class="txt" type="button" id="enviar" name="enviar" value="ACTUALIZAR" onclick="actualizarLocal()" />
+                <fieldset id="editarLoc">
+                    
                 </fieldset>
 
             </form>
