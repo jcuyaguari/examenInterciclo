@@ -1,3 +1,6 @@
+
+var listaCodigo  = new Array();
+var listaCantidad = new Array();
 function cambiar(opc) {
     switch (opc) {
         case 'uno':
@@ -114,4 +117,27 @@ function cambiar(opc) {
             element2.style.display = 'block'
             break;
     }
+}
+
+function cantidad(num, val, cod) {
+    if (val.checked == true) {
+        var bandera = true;
+        while (bandera) {
+            var retVal = prompt("Ingrese Canidad: ");
+            if (isNaN(retVal) == false) {
+                if (retVal <= num) {
+                    //Lenar carrito
+                    bandera = false;
+                } else {
+                    alert('Debe ser un numero menor a ' + num + ' ya que solo se dispone de esas unidades');
+                }
+
+            } else {
+                alert('Debe ser un numero');
+            }
+        }
+    } else {
+        //quitar de la lista
+    }
+
 }

@@ -27,8 +27,9 @@
             <a href=" #" onclick="cambiar('uno')">
                 <div class="name" data-text="Home">CREAR</div>
                 <div class="icon">
-                    <i class="fa fa-home" aria-hidden="true"></i>
-                    <i class="fa fa-home" aria-hidden="true"></i>
+                <i class="fa fa-plus-square" aria-hidden="true"></i>
+                <i class="fa fa-plus-square" aria-hidden="true"></i>
+                
                 </div>
 
             </a>
@@ -38,8 +39,8 @@
             <a href="#" onclick="cambiar('dos')">
                 <div class="name" data-text="Home">LISTAR</div>
                 <div class="icon">
-                    <i class="fa fa-address-card" aria-hidden="true"></i>
-                    <i class="fa fa-address-card" aria-hidden="true"></i>
+                <i class="fa fa-list" aria-hidden="true"></i>
+                <i class="fa fa-list" aria-hidden="true"></i>
                 </div>
 
             </a>
@@ -49,8 +50,8 @@
             <a href="#" onclick="cambiar('tres')">
                 <div class="name" data-text="Home">BUSCAR ELIMINAR</div>
                 <div class="icon">
-                    <i class="fa fa-telegram" aria-hidden="true"></i>
-                    <i class="fa fa-telegram" aria-hidden="true"></i>
+                <i class="fa fa-search" aria-hidden="true"></i>   
+                <i class="fa fa-search" aria-hidden="true"></i>   
                 </div>
 
             </a>
@@ -60,8 +61,8 @@
             <a href="#" onclick="cambiar('cuatro')">
                 <div class="name" data-text="Home">ACTUALIZAR</div>
                 <div class="icon">
-                    <i class="fa fa-envira" aria-hidden="true"></i>
-                    <i class="fa fa-envira" aria-hidden="true"></i>
+                <i class="fa fa-pencil-square" aria-hidden="true"></i>
+                <i class="fa fa-pencil-square" aria-hidden="true"></i>
                 </div>
 
             </a>
