@@ -14,9 +14,6 @@
 <body onload="cambiar('uno')">
     <?php
     include '../../config/conexionBD.php';
-    ?>
-
-    <?php
     $codigo = $_GET["codigo"];
     $sql = "SELECT * FROM usuario where usu_codigo=$codigo";
     $row = $conn->query($sql)->fetch_assoc();
@@ -57,9 +54,9 @@
             <input type="text" id="rol" name="rol" value="<?php echo $row["usu_rol"]; ?>" />
             <br>
             <input class="txt" type="button" id="eliminar" name="eliminar" value="ELIMINAR" onclick="eliminarUsuario()" />
-            <input type="reset" id="regresar" name="regresar" value="REGRESAR" onclick="location.href='../menuP/menu.php?codigo=<?php echo '$codigo'?>'">
+            <input type="reset" id="regresar" name="regresar" value="REGRESAR" onclick="location.href='../menuP/menu.php?codigo=<?php echo $codigo?>'">
             <input type="reset" id="salir" name="salir" value="SALIR" onclick="location.href='login.html'">
-
+            <input class="txt" type="button" id="eliminar" name="eliminar" value="ELIMINAR" onclick="actualizarUsuario()" />
 
 
             <a href="modificar.php?codigo=<?php echo $row["usu_codigo"]; ?>&rol=USER&cod=<?php echo $row["usu_codigo"]; ?>"><input type="button" id="modifcar" name="modifcar" value="Modificar"></a>

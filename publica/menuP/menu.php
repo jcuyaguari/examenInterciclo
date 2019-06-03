@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-$Codigo = $_GET['codigo'];
+$Codigo =$_GET['codigo'];
 ?>
 
 <head>
@@ -84,7 +84,7 @@ $Codigo = $_GET['codigo'];
                     </li>
 
                     <li>
-                        <a href="../user/IndexUsuario.php?codigo= <?php echo $Codigo ?>">
+                        <a href="../user/IndexUsuario.php?codigo=<?php echo "$Codigo"; ?>">
                             <div class="name" data-text="Home">ADMINISTRAR MI CUENTA</div>
                             <div class="icon">
                                 <i class="fa fa-user-o" aria-hidden="true"></i>
