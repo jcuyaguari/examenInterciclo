@@ -56,5 +56,7 @@ CREATE TABLE `pedido` (
 `ped_cod_user` int(11) NOT NULL,
 `ped_estado` varchar(50) NOT NULL,
 `usu_eliminado` boolean NOT NULL DEFAULT '0',
-PRIMARY KEY (`ped_codigo`))
+PRIMARY KEY (`ped_codigo`),
+FOREIGN KEY (`ped_cod_user`)   
+REFERENCES `usuario` (`usu_codigo`))
  ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
