@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+$Codigo = $_GET['codigo'];
+?>
 
 <head>
     <meta charset="UTF-8">
@@ -40,63 +43,63 @@
                     </a>
                 </li>
                 <li><a href="#" onclick="cambiar('tres')">
-                <div class="name" data-text="Home">QuienesSomos</div>
-                <div class="icon">
-                    <i class="fa fa-address-card" aria-hidden="true"></i>
-                    <i class="fa fa-address-card" aria-hidden="true"></i>
-                </div>
-                </a>
+                        <div class="name" data-text="Home">QuienesSomos</div>
+                        <div class="icon">
+                            <i class="fa fa-address-card" aria-hidden="true"></i>
+                            <i class="fa fa-address-card" aria-hidden="true"></i>
+                        </div>
+                    </a>
                 </li>
                 <li>
-                 <a href="#" onclick="cambiar('cuatro')">
-                <div class="name" data-text="Home">Mision</div>
-                <div class="icon">
-                    <i class="fa fa-telegram" aria-hidden="true"></i>
-                    <i class="fa fa-telegram" aria-hidden="true"></i>
-                </div>
+                    <a href="#" onclick="cambiar('cuatro')">
+                        <div class="name" data-text="Home">Mision</div>
+                        <div class="icon">
+                            <i class="fa fa-telegram" aria-hidden="true"></i>
+                            <i class="fa fa-telegram" aria-hidden="true"></i>
+                        </div>
 
-            </a>
-        </li>
-        <li>
-            <a href="#" onclick="cambiar('cinco')">
-                <div class="name" data-text="Home">Vision</div>
-                <div class="icon">
-                    <i class="fa fa-envira" aria-hidden="true"></i>
-                    <i class="fa fa-envira" aria-hidden="true"></i>
-                </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" onclick="cambiar('cinco')">
+                        <div class="name" data-text="Home">Vision</div>
+                        <div class="icon">
+                            <i class="fa fa-envira" aria-hidden="true"></i>
+                            <i class="fa fa-envira" aria-hidden="true"></i>
+                        </div>
 
-            </a>
-        </li>
+                    </a>
+                </li>
 
-        <li>
-            <a href="#" onclick="cambiar('seis')">
-                <div class="name" data-text="Home">Contacto</div>
-                <div class="icon">
-                    <i class="fa fa-envelope" aria-hidden="true"></i>
-                    <i class="fa fa-envelope" aria-hidden="true"></i>
-                </div>
+                <li>
+                    <a href="#" onclick="cambiar('seis')">
+                        <div class="name" data-text="Home">Contacto</div>
+                        <div class="icon">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                        </div>
 
-            </a>
-        </li>
-        
-        <li>
-            <a href="#" onclick="cambiar('siete')">
-                <div class="name" data-text="Home">Ingresar</div>
-                <div class="icon">
-                    <i class="fa fa-user-o" aria-hidden="true"></i>
-                    <i class="fa fa-user-o" aria-hidden="true"></i>
-                </div>
+                    </a>
+                </li>
 
-            </a>
-        </li>
+                <li>
+                    <a href="../user/IndexUsuario.php?codigo= <?php echo $Codigo ?>">
+                        <div class="name" data-text="Home">ADMINISTRAR MI CUENTA</div>
+                        <div class="icon">
+                            <i class="fa fa-user-o" aria-hidden="true"></i>
+                            <i class="fa fa-user-o" aria-hidden="true"></i>
+                        </div>
+
+                    </a>
+                </li>
 
             </ul>
         </nav>
-    <ul></ul>
+        <ul></ul>
         <h1 class='elegantshadow'>Floristeria "La Casa de las Flores"<input type="button" onclick="cambiar('1')" value="admi" class="admi"></h1>
-        
+
     </header>
-    
+
     <div class="contenedor" style="border: solid 2px red" id='uno'>
         <section>
             <article>
@@ -253,12 +256,12 @@
                     <li>Una empresa financieramente sólida.</li>
                     <li> Un lugar extraordinario para trabajar.</li>
                     <br>
-                    Trabajamos para crear un mejor futuro todos los días; Ayudamos a la gente a 
-                    sentirse bien, verse bien y mejorar su calidad de vida con marcas y servicios 
-                    que son buenos para ellos y para otros; 
-                    Inspiramos a la gente para que tome pequeñas acciones en el día 
+                    Trabajamos para crear un mejor futuro todos los días; Ayudamos a la gente a
+                    sentirse bien, verse bien y mejorar su calidad de vida con marcas y servicios
+                    que son buenos para ellos y para otros;
+                    Inspiramos a la gente para que tome pequeñas acciones en el día
                     a día que pueden hacer una gran diferencia en el mundo.
-                    
+
                 </p>
                 <!-- <img class="imgT" id="imgRenderizable" src="img/m1.jpg" alt=""> -->
                 <iframe width="860" height="615" src="https://www.youtube.com/embed/8KYiKkPWvMs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -314,24 +317,7 @@
         </section>
     </div>
     <div class="contenedor" style="border: solid 2px red" id='siete'>
-        <section>
-            <fieldset>
-                <legend>Inicio de Sesion</legend>
 
-                <form id="formulario01" method="POST" action="../controladores/login.php">
-                    <label for="correo">Correo electrónico </label>
-                    <input type="text" id="correo" name="correo" value="" placeholder="Ingrese el correo ..." />
-                    <br>
-                    <br>
-                    <label for="nombres">Constraseña</label>
-                    <input type="password" id="contrasena" name="contrasena" value="" placeholder="Ingrese su contraseña ..." />
-                    <br><br>
-                    <input type="submit" id="login" name="login" value="Iniciar Sesión" />
-                    <input type="button" id="registrarse" name="registrarse" value="Registrarse" onclick="location.href='Registrar.html'">
-                    <input type="reset" id="cancelar" name="cancelar" value="Cancelar" onclick="location.href='Registrar.html'">
-                </form>
-            </fieldset>
-        </section>
     </div>
 </body>
 <footer>
