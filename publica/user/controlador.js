@@ -339,3 +339,27 @@ function actualizarUsuario() {
         alert('No Rebice los datos')
     }
 }
+function actualizarContrasena() {
+    $cedula = document.getElementById('cedulaUsu').value;
+    $contrasenaA = prompt("INGRESAR CLAVE ANTIGUA");
+    $contrasenaN = prompt("INGRESAR CLAVE NUEVA");
+    if ($cedula != "" && $contrasenaA != "" && $contrasenaN != "") {
+        if (window.XMLHttpRequest) {
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                var res = this.responseText;
+                alert('Se actualizo');
+                document.location.reload();
+            }
+        };
+        xmlhttp.open("POST", "metodos.php", true);
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlhttp.send("opc=actualizarContrasena&contrasenaA=" + $contrasenaA + "&contrasenaN=" + $contrasenaN + "&cedula=" + $cedula);
+    } else {
+        alert('No Rebice los datos')
+    }
+}

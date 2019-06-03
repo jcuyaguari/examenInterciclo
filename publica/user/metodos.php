@@ -81,6 +81,25 @@
 
 
             break;
+        case 'actualizarContrasena':
+            date_default_timezone_set("America/Guayaquil");
+            $fechaM = date('Y-m-d H:i:s', time());
+            $cedula = ($_POST["cedula"]);
+            $contrasenaA = ($_POST["contrasenaA"]);
+            $contrasenaN = ($_POST["contrasenaN"]);
+            $sql2 = "SELECT * FROM usuario WHERE usu_cedula='$cedula' AND usu_password= MD5('$contrasenaA')";
+            $result = $conn->query($sql2);
+            $row = $result->fetch_assoc();
+            if ($result->num_rows > 0) {
+                $sql = "UPDATE usuario SET usu_password= MD5('$contrasenaN') WHERE usu_cedula='$cedula'";
+                if ($conn->query($sql) === TRUE) {
+                    echo "TRUE";
+                } else {
+
+                    echo "<p class='error'>Error: " . mysqli_error($conn) . "</p>";
+                }
+            }
+            break;
     }
     $conn->close();
     ?>
