@@ -84,6 +84,7 @@ $Codigo = $_GET['codigo'];
 
                 <li>
                     <a href="../user/IndexUsuario.php?codigo= <?php echo $Codigo ?>">
+                    
                         <div class="name" data-text="Home">ADMINISTRAR MI CUENTA</div>
                         <div class="icon">
                             <i class="fa fa-user-o" aria-hidden="true"></i>
@@ -91,6 +92,7 @@ $Codigo = $_GET['codigo'];
                         </div>
 
                     </a>
+                    
                 </li>
 
             </ul>
@@ -168,7 +170,7 @@ $Codigo = $_GET['codigo'];
                     Nuestros proyectos inmediatos: ampliación de nuestra sección de arreglos florales dedicadas eventos
                     corporativos o fiestas ; incorporación de tipos de plantas de diferentes especies
                     personalidades de rabiosa actualidad en nuestra sección de reportajes; ampliación de nuestro
-                    diccionario base;
+                    catalogo base;
                     creación de un foro de documentación y consultas; y muchos más, siempre al servicio de nuestros
                     visitantes.
                     Ofrecemos un Servicio distinto. Un Servicio de Floristería con detalles Persas.Arte Iraní con flores
