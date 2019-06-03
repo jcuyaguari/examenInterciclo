@@ -34,20 +34,32 @@
 
             break;
         case 'iniciar':
-            
             $correo = ($_POST["correo"]);
             $contrasena = $_POST["contrasena"];
             $sql = "SELECT * FROM usuario where usu_rol='USER' AND usu_correo='$correo' AND usu_password= MD5('$contrasena')";
-            
             $result = $conn->query($sql);
             $row = $result->fetch_assoc();
             if ($result->num_rows > 0) {
                 echo '**T**';
-                echo "<input hidden id='codigo' value='".$row['usu_codigo']."'></input>";
+                echo "<input hidden id='codigo' value='" . $row['usu_codigo'] . "'></input>";
             } else {
                 echo '**FALSE**';
                 echo "$conn->erro";
             }
+            break;
+
+        case 'eliminar':
+            date_default_timezone_set("America/Guayaquil");
+            $fecha = date('Y-m-d H:i:s', time());
+            $cedula = ($_POST["cedula"]);
+            $sql = "UPDATE usuario SET usu_eliminado='S', usu_fecha_modificacion='$fecha' WHERE usu_cedula='$cedula'";
+            if ($conn->query($sql) === TRUE) {
+                echo "TRUE";
+            } else {
+
+                echo "<p class='error'>Error: " . mysqli_error($conn) . "</p>";
+            }
+            break;
     }
     $conn->close();
     ?>
