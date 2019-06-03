@@ -13,21 +13,91 @@
 </head>
 
 
-<body onload="cambiar('1')">
+<body onload="cambiar('uno')">
 
     <header>
-        <h1 class='elegantshadow'>Floristeria "La Casa de las Flores">
-        <div  class="admi"><input type="button" onclick="cambiar('1')" value="ADMINISTRADOR"></div>
-        
-    </header>
-    <input type="button" onclick="cambiar('uno')" value="INICIO">
-    <input type="button" onclick="cambiar('dos')" value="COMPRAS">
-    <input type="button" onclick="cambiar('tres')" value="QUIENES SOMOS">
-    <input type="button" onclick="cambiar('cuatro')" value="MISION">
-    <input type="button" onclick="cambiar('cinco')" value="VISION">
-    <input type="button" onclick="cambiar('seis')" value="CONTACTO">
-    <input type="button" onclick="cambiar('siete')" value="LOGIN">
+        <nav>
+            <ul>
+                <li>
 
+                    <a href="#" onclick="cambiar('uno')">
+                        <div class="name" data-text="Home">Inicio</div>
+                        <div class="icon">
+                            <i class="fa fa-home" aria-hidden="true"></i>
+                            <i class="fa fa-home" aria-hidden="true"></i>
+                        </div>
+
+                    </a>
+
+                </li>
+                <li><a href="#" onclick="cambiar('dos')">
+                        <div class="name" data-text="Home">Compras</div>
+                        <div class="icon">
+                            <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+                            <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+                        </div>
+
+                    </a>
+                </li>
+                <li><a href="#" onclick="cambiar('tres')">
+                <div class="name" data-text="Home">QuienesSomos</div>
+                <div class="icon">
+                    <i class="fa fa-address-card" aria-hidden="true"></i>
+                    <i class="fa fa-address-card" aria-hidden="true"></i>
+                </div>
+                </a>
+                </li>
+                <li>
+                 <a href="#" onclick="cambiar('cuatro')">
+                <div class="name" data-text="Home">Mision</div>
+                <div class="icon">
+                    <i class="fa fa-telegram" aria-hidden="true"></i>
+                    <i class="fa fa-telegram" aria-hidden="true"></i>
+                </div>
+
+            </a>
+        </li>
+        <li>
+            <a href="#" onclick="cambiar('cinco')">
+                <div class="name" data-text="Home">Vision</div>
+                <div class="icon">
+                    <i class="fa fa-envira" aria-hidden="true"></i>
+                    <i class="fa fa-envira" aria-hidden="true"></i>
+                </div>
+
+            </a>
+        </li>
+
+        <li>
+            <a href="#" onclick="cambiar('seis')">
+                <div class="name" data-text="Home">Contacto</div>
+                <div class="icon">
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                </div>
+
+            </a>
+        </li>
+        
+        <li>
+            <a href="#" onclick="cambiar('siete')">
+                <div class="name" data-text="Home">Ingresar</div>
+                <div class="icon">
+                    <i class="fa fa-user-o" aria-hidden="true"></i>
+                    <i class="fa fa-user-o" aria-hidden="true"></i>
+                </div>
+
+            </a>
+        </li>
+
+            </ul>
+        </nav>
+
+        <h1 class='elegantshadow'>Floristeria "La Casa de las Flores"</h1>
+            <div class="admi"><input type="button" onclick="cambiar('1')" value="admi"></div>
+
+    </header>
+    
     <div class="contenedor" style="border: solid 2px red" id='uno'>
         <section>
             <article>
@@ -173,7 +243,7 @@
                     adaptadas a la realidad económica del país a nivel nacional e internacional
                     llegando a todo el mundo.
                 </p>
-                <img class="imgT" id="imgRenderizable" src="m1.jpg" alt="">
+                <img class="imgT" id="imgRenderizable" src="img/m1.jpg" alt="">
             </article>
         </section>
     </div>
@@ -241,9 +311,6 @@
                     <input type="submit" id="login" name="login" value="Iniciar Sesión" />
                     <input type="button" id="registrarse" name="registrarse" value="Registrarse" onclick="location.href='Registrar.html'">
                     <input type="reset" id="cancelar" name="cancelar" value="Cancelar" onclick="location.href='Registrar.html'">
-
-
-
                 </form>
             </fieldset>
         </section>
