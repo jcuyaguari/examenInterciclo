@@ -17,7 +17,13 @@
             $codigo = ($_POST['codigoA']);
             $img = addslashes(file_get_contents($_FILES['filesA']['tmp_name']));
 
-            $sql = "UPDATE  productos SET pro_nombre = '$nombre', pro_precio = '$precio', pro_stock = '$stock', pro_imagen = '$img'  WHERE pro_codigo = $codigo ";
+            if ($img != null) {
+                $sql = "UPDATE  productos SET pro_nombre = '$nombre', pro_precio = '$precio', pro_stock = '$stock', pro_imagen = '$img'  WHERE pro_codigo = $codigo ";
+            } else {
+                $sql = "UPDATE  productos SET pro_nombre = '$nombre', pro_precio = '$precio', pro_stock = '$stock'  WHERE pro_codigo = $codigo ";
+            }
+
+
             echo "$sql";
             if ($conn->query($sql) === TRUE) {
                 echo '**T**';
@@ -89,11 +95,11 @@
             break;
         case 'buscarAct':
             $datos = mb_strtoupper($_POST['actualizarP']);
-            $sql = "SELECT * FROM productos WHERE pro_eliminado = 0 AND pro_codigo = '$datos'  OR  pro_nombre = '$datos'  ";
+            $sql = "SELECT * FROM productos WHERE pro_eliminado = 0 AND pro_codigo LIKE '%$datos%'  OR  pro_eliminado = 0 AND pro_nombre LIKE '%$datos%'  ";
             $row = $conn->query($sql)->fetch_assoc();
             if ($row > 0) {
                 ?>
-            <input type="txt" id="codigoA" name="codigoA" value="<?php echo $row['pro_codigo'] ?>" hidden />  
+            <input type="txt" id="codigoA" name="codigoA" value="<?php echo $row['pro_codigo'] ?>" hidden />
             <table border>
                 <tr>
                     <td><label for="nombreA">Nombre(*)</label></td>
@@ -135,7 +141,7 @@
                 </tr>
                 <tr>
                     <td colspan=" 2" style="text-align: center">
-                        <input class="txt" type="button" id="enviar" name="enviar" value="GUARDAR PRODUCTO" onclick="actualizarProducto()" />
+                        <input class="txt" type="button" id="enviar" name="enviar" value="ACTUALIZAR PRODUCTO" onclick="actualizarProducto()" />
                     </td>
                 </tr>
             </table border>
