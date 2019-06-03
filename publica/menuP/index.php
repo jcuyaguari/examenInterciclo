@@ -1,8 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php
-$Codigo = $_GET['codigo'];
-?>
 
 <head>
     <meta charset="UTF-8">
@@ -83,8 +80,8 @@ $Codigo = $_GET['codigo'];
                 </li>
 
                 <li>
-                    <a href="../user/IndexUsuario.php?codigo= <?php echo $Codigo ?>">
-                        <div class="name" data-text="Home">ADMINISTRAR MI CUENTA</div>
+                    <a href="#" onclick="cambiar('siete')">
+                        <div class="name" data-text="Home">Ingresar</div>
                         <div class="icon">
                             <i class="fa fa-user-o" aria-hidden="true"></i>
                             <i class="fa fa-user-o" aria-hidden="true"></i>
@@ -154,6 +151,41 @@ $Codigo = $_GET['codigo'];
         </section>
     </div>
     <div class="contenedor" style="border: solid 2px red" id='dos'>
+        <?php
+        include '../../config/conexionBD.php';
+        $sql = "SELECT * FROM productos WHERE pro_eliminado = 0";
+        $result = $conn->query($sql);
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                ?>
+                <fieldset style="text-align: center; float: left;">
+                    <?php echo '<img style="width: 383px; height: 245px;" src="data:image/jpg;base64,' . base64_encode($row['pro_imagen']) . '">'; ?>
+                    <h1 style="border: double  black 10px;"> <?php echo $row['pro_nombre']; ?></h1>
+                    <b style="border: dotted  black 2px;"> <?php echo "$ " . $row['pro_precio'] ?></b> <br><br>
+                    <i style="border: solid  black 2px;"> <?php echo "Unidades Disponibles: " . $row['pro_stock']; ?></i><br><br>
+                    <label class="switch">
+                        <input type="checkbox" onclick="cantidad(<?php echo $row['pro_stock']; ?>, this, <?php echo $row['pro_codigo']; ?>)">
+                        <span class="slider"></span>
+                    </label>
+
+                </fieldset>
+            <?php
+        }
+        ?>
+            <button name="button" id='btnCarrito' onclick="carrito()">COMPRAR PRODUCTOS</button>
+        <?php
+    } else {
+        echo "<tr>";
+        echo " <td colspan='7'> NO EXISTEN PRODUCTOS </td> ";
+        echo "</tr>";
+    }
+    ?>
+
+
+
+        <?php
+        $conn->close();
+        ?>
     </div>
     <div class="contenedor" style="border: solid 2px red" id='tres'>
         <section>
@@ -168,7 +200,8 @@ $Codigo = $_GET['codigo'];
                     Nuestros proyectos inmediatos: ampliación de nuestra sección de arreglos florales dedicadas eventos
                     corporativos o fiestas ; incorporación de tipos de plantas de diferentes especies
                     personalidades de rabiosa actualidad en nuestra sección de reportajes; ampliación de nuestro
-                    diccionario base;
+                    diccionario
+                    base;
                     creación de un foro de documentación y consultas; y muchos más, siempre al servicio de nuestros
                     visitantes.
                     Ofrecemos un Servicio distinto. Un Servicio de Floristería con detalles Persas.Arte Iraní con flores
@@ -217,18 +250,11 @@ $Codigo = $_GET['codigo'];
                     muchos más en el futuro.
                     Nuestros proyectos inmediatos: ampliación de nuestra sección de arreglos florales dedicadas eventos
                     corporativos o fiestas ; incorporación de tipos de plantas de diferentes especies
-                    personalizadas a su gusto, en la  actualidad en nuestra sección de reportajes disfrutara de varios modelos; ampliación de nuestro
-                    catalogo base;
+                    personalidades de rabiosa actualidad en nuestra sección de reportajes; ampliación de nuestro
+                    diccionario
+                    base;
                     creación de un foro de documentación y consultas; y muchos más, siempre al servicio de nuestros
                     visitantes.
-                    Ayudar a nuestros clientes hacer distintivas, duraderas y sustanciales mejoras en su desempeño 
-                    y construir una gran firma que atrae, desarrolla, excita y retiene personas excepcionales.
-                    Ofrecer servicios portuarios de excelencia, agregando valor a la cadena logística de nuestros
-                    clientes y apoyando el fortalecimiento del comercio exterior del país. 
-                    Generando rentabilidad a nuestros accionistas. Contando con un equipo humano competente 
-                    e infraestructura de alto nivel que nos permita ser competitivos en el sector portuario.
-                    Preservando la seguridad y salud de nuestros colaboradores, y actuando de manera 
-                    responsable con el medio ambiente y la sociedad.
                 </p>
                 <img class="imgT" id="imgRenderizable" src="img/m1.jpg" alt="">
                 <img class="imgT" id="imgRenderizable" src="img/m2.jpg" alt="">
@@ -270,7 +296,7 @@ $Codigo = $_GET['codigo'];
 
                 </p>
                 <!-- <img class="imgT" id="imgRenderizable" src="img/m1.jpg" alt=""> -->
-                <div style=”text-align: center”><iframe width="1320" height="615"  src="https://www.youtube.com/embed/8KYiKkPWvMs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                <iframe width="860" height="615" src="https://www.youtube.com/embed/8KYiKkPWvMs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </article>
         </section>
     </div>
@@ -323,7 +349,24 @@ $Codigo = $_GET['codigo'];
         </section>
     </div>
     <div class="contenedor" style="border: solid 2px red" id='siete'>
+        <section>
+            <fieldset>
+                <legend>Inicio de Sesion</legend>
 
+                <form id="formulario01" method="POST" action="../controladores/login.php">
+                    <label for="correo">Correo electrónico </label>
+                    <input type="text" id="correo" name="correo" value="" placeholder="Ingrese el correo ..." />
+                    <br>
+                    <br>
+                    <label for="nombres">Constraseña</label>
+                    <input type="password" id="contrasena" name="contrasena" value="" placeholder="Ingrese su contraseña ..." />
+                    <br><br>
+                    <input type="submit" id="login" name="login" value="Iniciar Sesión" />
+                    <input type="button" id="registrarse" name="registrarse" value="Registrarse" onclick="location.href='Registrar.html'">
+                    <input type="reset" id="cancelar" name="cancelar" value="Cancelar" onclick="location.href='Registrar.html'">
+                </form>
+            </fieldset>
+        </section>
     </div>
 </body>
 <footer>

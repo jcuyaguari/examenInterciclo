@@ -165,7 +165,7 @@
                     }
                 } else {
                     echo "<tr>";
-                    echo " <td colspan='7'> No existen correos </td> ";
+                    echo " <td colspan='7'> No existen productos </td> ";
                     echo "</tr>";
                 }
                 ?>

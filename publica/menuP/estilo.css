@@ -211,3 +211,12 @@ border-block-end: 2%;
   .slider.round:before {
     border-radius: 50%;
   }
+
+  #btnCarrito{
+    position: relative;
+     margin-top: 20px; 
+     margin-left: 25%; 
+     height: 100px; 
+     width: 400px; 
+     float: left;
+  }
