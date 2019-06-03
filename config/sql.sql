@@ -40,9 +40,38 @@ CREATE TABLE `usuario` (
 `usu_password` varchar(255) NOT NULL,
 `usu_fecha_nacimiento` date NOT NULL,
 `usu_eliminado` varchar(10) NOT NULL DEFAULT 'N',
-`usu_fecha_creacion` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+`usu_fecha_creacion` timestamp NULL DEFAULT NULL,
 `usu_fecha_modificacion` timestamp NULL DEFAULT NULL,
 `usu_rol` varchar(20) DEFAULT NULL,
 PRIMARY KEY (`usu_codigo`),
 UNIQUE KEY `usu_cedula` (`usu_cedula`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+
+
+
+********CREACION de pedido *************
+CREATE TABLE `pedido` (
+`ped_codigo` int(11) NOT NULL AUTO_INCREMENT,
+`ped_fecha` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+`ped_cod_user` int(11) NOT NULL,
+`ped_estado` varchar(50) NOT NULL,
+`usu_eliminado` boolean NOT NULL DEFAULT '0',
+PRIMARY KEY (`ped_codigo`),
+FOREIGN KEY (`ped_cod_user`)   
+REFERENCES `usuario` (`usu_codigo`))
+ ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+
+
+
+*****detalle pedido*****
+CREATE TABLE IF NOT EXISTS `Det_Ped` (
+  `det_ped_id` int(11) NOT NULL AUTO_INCREMENT,
+  `det_ped_producto` VARCHAR(50) NOT NULL,
+  `det_ped_pedido` VARCHAR(50) NOT NULL,
+  `det_ped_cantidad` VARCHAR(50) NOT NULL,
+
+  PRIMARY KEY (`det_ped_id`),
+  FOREIGN KEY (`ped_cododigo`),
+  FOREIGN KEY (`pro_codigo`)
+)
+ENGINE = InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;

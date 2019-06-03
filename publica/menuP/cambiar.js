@@ -1,5 +1,6 @@
 
-var lista  = new Array();
+var listaCodigo = new Array();
+var listaCantidad = new Array();
 function cambiar(opc) {
     switch (opc) {
         case 'uno':
@@ -125,8 +126,9 @@ function cantidad(num, val, cod) {
             var retVal = prompt("Ingrese Canidad: ");
             if (isNaN(retVal) == false) {
                 if (retVal <= num) {
-                    lista[cod] = retVal;
-                    bandera= false;
+                    listaCantidad.push(retVal);
+                    listaCodigo.push(cod);
+                    bandera = false;
                 } else {
                     alert('Debe ser un numero menor a ' + num + ' ya que solo se dispone de esas unidades');
                 }
@@ -136,11 +138,47 @@ function cantidad(num, val, cod) {
             }
         }
     } else {
-        //quitar de la lista
+        var pos = listaCodigo.indexOf(cod)
+        listaCodigo.splice(pos, 1);
+        listaCantidad.splice(pos, 1);
+        console.log(listaCantidad, listaCodigo);
     }
 
 }
 
-function carrito(){
-    
+function carrito() {
+    if (listaCodigo.length != 0) {
+        $('#listaCodigos').val(JSON.stringify(listaCodigo))
+        $('#listaCantidad').val(JSON.stringify(listaCantidad))
+        var formData = new FormData($("#formCarrito")[0]);
+        $.ajax({
+            url: 'metodos.php',
+            type: 'POST',
+            data: formData,
+            cache: false,
+            processData: false,
+            contentType: false,
+        }).done(function (resp) {
+            console.log(resp)
+            res = resp.indexOf('**T**');
+            if (res != -1) {
+                alert("PRODUCTO CREADO")
+                // document.location.reload();
+            } else {
+                res = resp.indexOf('**N**');
+                if (res != -1) {
+                    alert("EL NOMBRE ES EL MISMO");
+                } else {
+                    alert('No se pudo guardar>>');
+                }
+
+            }
+        });
+    } else {
+        alert('Debe selecionar uno o mas productos')
+    }
+}
+
+function administrador(cod) {
+
 }

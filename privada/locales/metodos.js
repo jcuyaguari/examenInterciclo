@@ -93,7 +93,7 @@ function actualizarLocal() {
         xmlhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 var res = this.responseText;
-                alert('Se actualizo')
+                alert('Se actualizo');
                 document.location.reload();
 
             }
