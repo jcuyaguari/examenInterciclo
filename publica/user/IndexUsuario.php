@@ -12,7 +12,7 @@
 
 </head>
 
-<body>
+<body onload="cambiar('uno')">
     <?php
     include '../../config/conexionBD.php';
     $codigo = $_GET["codigo"];
@@ -20,12 +20,19 @@
     $row = $conn->query($sql)->fetch_assoc();
     ?>
     <h1 class='elegantshadow'>Floristeria "La Casa de las Flores"</h1>
+    <input type="button" onclick="cambiar('uno')" value="OPCIONES DE CUENTA">
+
+    <input type="button" onclick="cambiar('dos')" value="MIS PEDIDOS">
+
+    <input type="button" onclick="cambiar('tres')" value="MIS FACTURAS">
+
+
     <form id="form" method="POST">
         <div id='uno'>
             <input type="hidden" id="codigo" name="codigo" value="<?php echo $codigo ?>" />
             <label for="cedula">Cedula (*)</label>
             <br>
-            <input type="text" id="cedulaUsu" name="cedulaUsu" value="<?php echo $row["usu_cedula"]; ?>" disabled/>
+            <input type="text" id="cedulaUsu" name="cedulaUsu" value="<?php echo $row["usu_cedula"]; ?>" disabled />
             <br>
             <label for="nombres">Nombres (*)</label>
             <br>
@@ -53,15 +60,21 @@
             <br>
             <label for="ROL">Rol de Usuario (*)</label>
             <br>
-            <input type="text" id="rol" name="rol" value="<?php echo $row["usu_rol"]; ?>" disabled/>
+            <input type="text" id="rol" name="rol" value="<?php echo $row["usu_rol"]; ?>" disabled />
             <br>
             <input class="txt" type="button" id="eliminar" name="eliminar" value="ELIMINAR" onclick="eliminarUsuario()" />
             <input class="txt" type="button" id="actualizar" name="actualizar" value="ACTUALIZAR" onclick="actualizarUsuario()" />
             <input class="txt" type="button" id="AContrasena" name="AContrasena" value="CAMBIAR CONTRASEÑA" onclick="actualizarContrasena()" />
             <br>
             <input type="reset" id="regresar" name="regresar" value="REGRESAR" onclick="location.href='../menuP/menu.php?codigo=<?php echo $codigo ?>'">
-            <input  type="reset" id="salir" name="salir" value="SALIR" onclick="location.href='login.html'">
+            <input type="reset" id="salir" name="salir" value="SALIR" onclick="location.href='login.html'">
 
+        </div>
+        <div id="dos">
+            <h1>PEDIDOS</h1>
+        </div>
+        <div id="tres">
+            <h1>FACTUA</h1>
         </div>
         <?php
         $conn->close();
