@@ -16,7 +16,7 @@ $Codigo =$_GET['codigo'];
 </head>
 
 
-<body onload="cambiar('dos')">
+<body onload="cambiar('uno')">
     <form id='formCarrito' method="POST">
         <header>
             <h1 class='elegantshadow'>Floristeria "La Casa de las Flores"</h1>
