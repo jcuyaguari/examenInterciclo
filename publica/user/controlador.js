@@ -1,3 +1,38 @@
+function cambiar(opc) {
+    switch (opc) {
+        case 'uno':
+            var element = document.getElementById('uno');
+            element.style.display = 'block';
+            var element1 = document.getElementById('dos');
+            element1.style.display = 'none';
+            var element2 = document.getElementById('tres');
+            element2.style.display = 'none';
+            break;
+        case 'dos':
+            var element = document.getElementById('uno');
+            element.style.display = 'none';
+            var element1 = document.getElementById('dos');
+            element1.style.display = 'block';
+            var element2 = document.getElementById('tres');
+            element2.style.display = 'none';
+            
+            break;
+
+        case 'tres':
+            var element = document.getElementById('uno');
+            element.style.display = 'none';
+            var element1 = document.getElementById('dos');
+            element1.style.display = 'none';
+            var element2 = document.getElementById('tres');
+            element2.style.display = 'block';
+            
+            break;
+    }
+}
+
+
+
+
 function guardarCliente() {
     alert("funciona...")
     var formData = new FormData($("#formUser")[0]);
@@ -25,7 +60,7 @@ function guardarCliente() {
 
         }
     });
-    
+
 }
 
 
@@ -43,7 +78,7 @@ function validarCedula() {
                 if (aux > 9) aux -= 9;
                 total += aux;
             } else {
-                total += parseInt(cad.charAt(i)); 
+                total += parseInt(cad.charAt(i));
                 //parsea o concatanara la cadena
             }
         }
@@ -90,30 +125,30 @@ function dosNombres(txt, id) {
         p1 = palabras[0].trim();
         p2 = palabras[1].trim();
         if (p1 != '' && p2.length >= 2) {
-            document.getElementById(id).innerHTML=('cumple');
+            document.getElementById(id).innerHTML = ('cumple');
         } else {
-            document.getElementById(id).innerHTML=('no cumple');
+            document.getElementById(id).innerHTML = ('no cumple');
         }
     } else {
-        document.getElementById(id).innerHTML=('no cumple');
+        document.getElementById(id).innerHTML = ('no cumple');
     }
 }
 
 function numeroTelefono(e) {
     var keynum = window.event ? window.event.keyCode : e.which;
-    if ((keynum < 48) || (keynum >57)) {
-		document.getElementById("mensajeTelefono").innerHTML = ("Ingrese solo numeros ");
-		return true;
-		
-	}
+    if ((keynum < 48) || (keynum > 57)) {
+        document.getElementById("mensajeTelefono").innerHTML = ("Ingrese solo numeros ");
+        return true;
+
+    }
 }
 
-function fecha(){
-	var Fecha = document.getElementById('fechaNacimiento').value;
+function fecha() {
+    var Fecha = document.getElementById('fechaNacimiento').value;
     var Mensaje = '';
     document.getElementById('mensajeFecha').className = '';
-    if (Fecha.length == 10 ){
-        fe =Fecha.split('/');
+    if (Fecha.length == 10) {
+        fe = Fecha.split('/');
         var Anio = fe[2];
         var Mes = fe[1] - 1;
         var Dia = fe[0];
@@ -175,7 +210,7 @@ function validarCamposObligatorios() {
 //         capa.style.border = "4px outset  red";
 //         bandera = false;
 //     }
-   
+
 //     if (!document.getElementById('mensajeNombres')) {
 //         var capa = document.getElementById('nombres');
 //         capa.style.border = "4px outset  red";
@@ -214,5 +249,45 @@ function validarCamposObligatorios() {
 
 //     return bandera;
 
-    
+
 // }
+
+
+
+
+
+function iniciar() {
+    $correo = document.getElementById('correo').value;
+    $contrasena = document.getElementById('contrasena').value;
+    if (correo != "" && contrasena != "") {
+        if (window.XMLHttpRequest) {
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                resp = this.responseText;
+                console.log(resp)
+                res = resp.indexOf('**T**');
+
+                if (res != -1) {
+                    document.getElementById('respuesta').innerHTML = this.responseText;
+                    var $codigo = document.getElementById('codigo').value;
+                    alert($codigo);
+                    location.href = 'IndexUsuario.php?codigo=' + $codigo;
+                } else {
+                    alert("USUARIO NO ENCONTRADO");
+                    document.location.reload();
+
+                }
+
+            }
+        };
+        xmlhttp.open("POST", "metodos.php", true);
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlhttp.send("opc=iniciar&correo=" + $correo + "&contrasena=" + $contrasena);
+    } else {
+        alert('datos vacios')
+    }
+}

@@ -21,7 +21,7 @@
             $contrasena = isset($_POST["contrasena"]) ? trim($_POST["contrasena"]) : null;
 
             $sql = "INSERT INTO usuario VALUES (0, '$cedula', '$nombres', '$apellidos', '$direccion', '$telefono','$correo', MD5('$contrasena'), '$fechaNacimiento', 'N', null, null, 'USER')";
-           
+
             if ($conn->query($sql) === TRUE) {
                 echo '*T*';
             } else {
@@ -31,8 +31,23 @@
                     echo '*FALSE*';
                 }
             }
+
+            break;
+        case 'iniciar':
             
-             break;
+            $correo = ($_POST["correo"]);
+            $contrasena = $_POST["contrasena"];
+            $sql = "SELECT * FROM usuario where usu_rol='USER' AND usu_correo='$correo' AND usu_password= MD5('$contrasena')";
+            
+            $result = $conn->query($sql);
+            $row = $result->fetch_assoc();
+            if ($result->num_rows > 0) {
+                echo '**T**';
+                echo "<input hidden id='codigo' value='".$row['usu_codigo']."'></input>";
+            } else {
+                echo '**FALSE**';
+                echo "$conn->erro";
+            }
     }
     $conn->close();
     ?>
