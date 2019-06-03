@@ -98,6 +98,8 @@
 
                     echo "<p class='error'>Error: " . mysqli_error($conn) . "</p>";
                 }
+            }else{
+                echo "clave incorrecta";
             }
             break;
     }
