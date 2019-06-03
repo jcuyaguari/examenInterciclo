@@ -137,18 +137,16 @@ h1 {
 
     /*boton administrador*/
 .admi{
-    top: 12px;
-    display: inline;
-        
-    transform: translateY(-5%, -10%);
-    border: 10;
-    background: red;
+    position: absolute;
+    left: 20px;
+    margin-left: 1390px;   
     font-size: 1.2em;
     color: #FFF;
+
 }
 
 
-/*------------------estilo boton on off*/
+/*------------------estilo boton on off-----------------------*/
 
 .switch {
     position: relative;
