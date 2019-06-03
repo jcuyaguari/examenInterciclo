@@ -26,3 +26,21 @@ CREATE TABLE IF NOT EXISTS `Local` (
   PRIMARY KEY (`loc_id`),
   UNIQUE KEY `loc_nombre` (`loc_nombre`))
 ENGINE = InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+
+
+*****CREACION DE USUARIOS*****
+CREATE TABLE examen.`usuario` (
+  usu_codigo int(11) NOT NULL,
+  usu_cedula varchar(10) NOT NULL,
+  usu_nombres varchar(150) NOT NULL,
+  usu_apellidos varchar(150) NOT NULL,
+  usu_direccion varchar(175) NOT NULL,
+  usu_telefono varchar(120) NOT NULL,
+  usu_correo varchar(120) NOT NULL,
+  usu_password varchar(255) NOT NULL,
+  usu_fecha_nacimiento date NOT NULL,
+  usu_eliminado varchar(1) NOT NULL DEFAULT 'N',
+  usu_fecha_creacion timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  usu_fecha_modificacion timestamp NULL DEFAULT NULL,
+  usu_rol varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
