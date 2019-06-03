@@ -134,3 +134,14 @@ h1 {
         margin:10px 9px; /*espacio entre imagenes*/
         transform: translate(-5%, -10%);
     }
+
+.admi{
+    top: 12px;
+    display: inline;
+        
+    transform: translateY(-5%, -10%);
+    border: 10;
+    background: red;
+    font-size: 1.2em;
+    color: #FFF;
+}

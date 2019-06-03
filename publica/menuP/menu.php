@@ -17,15 +17,16 @@
 
     <header>
         <h1 class='elegantshadow'>Floristeria "La Casa de las Flores">
-        <input type="button" onclick="cambiar('1')" value="ADMINISTRADOR" style="position: initial; border-right:  100px">
+        <div  class="admi"><input type="button" onclick="cambiar('1')" value="ADMINISTRADOR"></div>
+        
     </header>
-    <input type="button" onclick="cambiar('1')" value="INICIO">
-    <input type="button" onclick="cambiar('2')" value="COMPRAS">
-    <input type="button" onclick="cambiar('3')" value="QUIENES SOMOS">
-    <input type="button" onclick="cambiar('4')" value="MISION">
-    <input type="button" onclick="cambiar('5')" value="VISION">
-    <input type="button" onclick="cambiar('6')" value="CONTACTO">
-    <input type="button" onclick="cambiar('7')" value="LOGIN">
+    <input type="button" onclick="cambiar('uno')" value="INICIO">
+    <input type="button" onclick="cambiar('dos')" value="COMPRAS">
+    <input type="button" onclick="cambiar('tres')" value="QUIENES SOMOS">
+    <input type="button" onclick="cambiar('cuatro')" value="MISION">
+    <input type="button" onclick="cambiar('cinco')" value="VISION">
+    <input type="button" onclick="cambiar('seis')" value="CONTACTO">
+    <input type="button" onclick="cambiar('siete')" value="LOGIN">
 
     <div class="contenedor" style="border: solid 2px red" id='uno'>
         <section>

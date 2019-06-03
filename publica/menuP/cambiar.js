@@ -1,116 +1,116 @@
 function cambiar(opc) {
     switch (opc) {
-        case '1':
-            var element = document.getElementById('1');
+        case 'uno':
+            var element = document.getElementById('uno');
             element.style.display = 'block';
-            var element1 = document.getElementById('2');
+            var element1 = document.getElementById('dos');
             element1.style.display = 'none';
-            var element2 = document.getElementById('3');
+            var element2 = document.getElementById('tres');
             element2.style.display = 'none';
-            var element2 = document.getElementById('4');
+            var element2 = document.getElementById('cuatro');
             element2.style.display = 'none';
-            var element2 = document.getElementById('5');
+            var element2 = document.getElementById('cinco');
             element2.style.display = 'none'
-            var element2 = document.getElementById('6');
+            var element2 = document.getElementById('seis');
             element2.style.display = 'none'
-            var element2 = document.getElementById('7');
+            var element2 = document.getElementById('siete');
             element2.style.display = 'none'
             break;
-        case '2':
-            var element = document.getElementById('1');
+        case 'dos':
+            var element = document.getElementById('uno');
             element.style.display = 'none';
-            var element1 = document.getElementById('2');
+            var element1 = document.getElementById('dos');
             element1.style.display = 'block';
-            var element2 = document.getElementById('3');
+            var element2 = document.getElementById('tres');
             element2.style.display = 'none';
-            var element2 = document.getElementById('4');
+            var element2 = document.getElementById('cuatro');
             element2.style.display = 'none';
-            var element2 = document.getElementById('5');
+            var element2 = document.getElementById('cinco');
             element2.style.display = 'none'
-            var element2 = document.getElementById('6');
+            var element2 = document.getElementById('seis');
             element2.style.display = 'none'
-            var element2 = document.getElementById('7');
+            var element2 = document.getElementById('siete');
             element2.style.display = 'none'
             break;
 
-        case '3':
-            var element = document.getElementById('1');
+        case 'tres':
+            var element = document.getElementById('uno');
             element.style.display = 'none';
-            var element1 = document.getElementById('2');
+            var element1 = document.getElementById('dos');
             element1.style.display = 'none';
-            var element2 = document.getElementById('3');
+            var element2 = document.getElementById('tres');
             element2.style.display = 'block';
-            var element2 = document.getElementById('4');
+            var element2 = document.getElementById('cuatro');
             element2.style.display = 'none';
-            var element2 = document.getElementById('5');
+            var element2 = document.getElementById('cinco');
             element2.style.display = 'none'
-            var element2 = document.getElementById('6');
+            var element2 = document.getElementById('seis');
             element2.style.display = 'none'
-            var element2 = document.getElementById('7');
+            var element2 = document.getElementById('siete');
             element2.style.display = 'none'
             break;
-        case '4':
-            var element = document.getElementById('1');
+        case 'cuatro':
+            var element = document.getElementById('uno');
             element.style.display = 'none';
-            var element1 = document.getElementById('2');
+            var element1 = document.getElementById('dos');
             element1.style.display = 'none';
-            var element2 = document.getElementById('3');
+            var element2 = document.getElementById('tres');
             element2.style.display = 'none';
-            var element2 = document.getElementById('4');
+            var element2 = document.getElementById('cuatro');
             element2.style.display = 'block';
-            var element2 = document.getElementById('5');
+            var element2 = document.getElementById('cinco');
             element2.style.display = 'none'
-            var element2 = document.getElementById('6');
+            var element2 = document.getElementById('seis');
             element2.style.display = 'none'
-            var element2 = document.getElementById('7');
+            var element2 = document.getElementById('siete');
             element2.style.display = 'none'
             break;
-        case '5':
-            var element = document.getElementById('1');
+        case 'cinco':
+            var element = document.getElementById('uno');
             element.style.display = 'none';
-            var element1 = document.getElementById('2');
+            var element1 = document.getElementById('dos');
             element1.style.display = 'none';
-            var element2 = document.getElementById('3');
+            var element2 = document.getElementById('tres');
             element2.style.display = 'none';
-            var element2 = document.getElementById('4');
+            var element2 = document.getElementById('cuatro');
             element2.style.display = 'none';
-            var element2 = document.getElementById('5');
+            var element2 = document.getElementById('cinco');
             element2.style.display = 'block'
-            var element2 = document.getElementById('6');
+            var element2 = document.getElementById('seis');
             element2.style.display = 'none'
-            var element2 = document.getElementById('7');
+            var element2 = document.getElementById('siete');
             element2.style.display = 'none'
             break;
-        case '6':
-            var element = document.getElementById('1');
+        case 'seis':
+            var element = document.getElementById('uno');
             element.style.display = 'none';
-            var element1 = document.getElementById('2');
+            var element1 = document.getElementById('dos');
             element1.style.display = 'none';
-            var element2 = document.getElementById('3');
+            var element2 = document.getElementById('tres');
             element2.style.display = 'none';
-            var element2 = document.getElementById('4');
+            var element2 = document.getElementById('cuatro');
             element2.style.display = 'none';
-            var element2 = document.getElementById('5');
+            var element2 = document.getElementById('cinco');
             element2.style.display = 'none'
-            var element2 = document.getElementById('6');
+            var element2 = document.getElementById('seis');
             element2.style.display = 'block'
-            var element2 = document.getElementById('7');
+            var element2 = document.getElementById('siete');
             element2.style.display = 'none'
             break;
-        case '7':
-            var element = document.getElementById('1');
+        case 'siete':
+            var element = document.getElementById('uno');
             element.style.display = 'none';
-            var element1 = document.getElementById('2');
+            var element1 = document.getElementById('dos');
             element1.style.display = 'none';
-            var element2 = document.getElementById('3');
+            var element2 = document.getElementById('tres');
             element2.style.display = 'none';
-            var element2 = document.getElementById('4');
+            var element2 = document.getElementById('cuatro');
             element2.style.display = 'none';
-            var element2 = document.getElementById('5');
+            var element2 = document.getElementById('cinco');
             element2.style.display = 'none'
-            var element2 = document.getElementById('6');
+            var element2 = document.getElementById('seis');
             element2.style.display = 'none'
-            var element2 = document.getElementById('7');
+            var element2 = document.getElementById('siete');
             element2.style.display = 'block'
             break;
     }
