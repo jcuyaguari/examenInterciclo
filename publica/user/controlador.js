@@ -34,7 +34,6 @@ function cambiar(opc) {
 
 
 function guardarCliente() {
-    alert("funciona...")
     var formData = new FormData($("#formUser")[0]);
     $.ajax({
         url: 'metodos.php',
@@ -44,17 +43,16 @@ function guardarCliente() {
         processData: false,
         contentType: false,
     }).done(function (resp) {
-        alert(resp)
+        //alert(resp)
         res = resp.indexOf('*T*');
         if (res != -1) {
             alert("Usuario Registrado")
-            document.location.reload();
+            location.href = 'login.html';
         } else {
             res = resp.indexOf('*N*');
             if (res != -1) {
                 alert("La cedula ya esta registrada");
             } else {
-
                 alert('ya perdii' + res)
             }
 
@@ -62,9 +60,6 @@ function guardarCliente() {
     });
 
 }
-
-
-
 
 function validarCedula() {
     var cad = document.getElementById("cedula").value;
@@ -293,7 +288,6 @@ function iniciar() {
 }
 
 function eliminarUsuario() {
-    
     $cedula = document.getElementById('cedulaUsu').value;
     if ($cedula != "") {
         if (window.XMLHttpRequest) {
@@ -307,11 +301,9 @@ function eliminarUsuario() {
                 location.href = 'login.html';
             }
         };
-
-
         xmlhttp.open("POST", "metodos.php", true);
         xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xmlhttp.send("opc=eliminar&cedula=" + $cedula );
+        xmlhttp.send("opc=eliminar&cedula=" + $cedula);
 
     } else {
         alert('No Rebice los datos para eliminar')
