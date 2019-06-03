@@ -56,13 +56,35 @@ function crearLocal() {
     }
 }
 
-function actualizarLocal(){
-    var nombre = document.getElementById('nombrenombreNuevo').value;
+function buscarLocal() {
+    var nombre = document.getElementById('nombreBuscar').value;
+
+    if (nombre != "") {
+        if (window.XMLHttpRequest) {
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById('editarLoc').innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET", "baseLocales.php?opc=buscar&nombre=" + nombre, true);
+        xmlhttp.send();
+    } else {
+        alert('No Rebice los datos')
+    }
+}
+
+function actualizarLocal() {
+    var nombre = document.getElementById('nombreBuscar').value;
+    var nombreN = document.getElementById('nombreNuevo').value;
     var direccion = document.getElementById('direccionNueva').value;
     var telefono = document.getElementById('telefonoNuevo').value;
     var descripcion = document.getElementById('descripcionNueva').value;
 
-    if (nombre != "" && direccion != "" && telefono != "" && descripcion != "") {
+    if (nombre != "" && nombreN != "" && direccion != "" && telefono != "" && descripcion != "") {
         if (window.XMLHttpRequest) {
             xmlhttp = new XMLHttpRequest();
         } else {
@@ -71,12 +93,12 @@ function actualizarLocal(){
         xmlhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 var res = this.responseText;
-                alert('Local Guardado')
+                alert('Se actualizo')
                 document.location.reload();
 
             }
         };
-        xmlhttp.open("GET", "baseLocales.php?opc=modificar&nombre=" + nombre + "&direccion=" + direccion + "&telefono=" + telefono +
+        xmlhttp.open("GET", "baseLocales.php?opc=modificar&nombre=" + nombre + "&nombreN=" + nombreN + "&direccion=" + direccion + "&telefono=" + telefono +
             "&descripcion=" + descripcion, true);
         xmlhttp.send();
     } else {
@@ -84,7 +106,7 @@ function actualizarLocal(){
     }
 }
 
-function eliminarLocal(){
+function eliminarLocal() {
     var nombre = document.getElementById('nombreEliminar').value;
     if (nombre != "") {
         if (window.XMLHttpRequest) {
