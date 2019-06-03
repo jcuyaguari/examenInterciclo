@@ -103,51 +103,7 @@
     <div class="contenedor" style="border: solid 2px red">
     <section>
         <article>
-            <h1>Categorias</h1>
-            <p>
-                
-                <!-- <img id="imgOpacidad" src="f.jpg" alt=""> -->
-                
-            </p>
-            <img class="imgT" id="imgRenderizable" src="img/1.jpg" alt="">
             
-            <input type="submit" id="modificar" name="modificar" value="Añadir" />
-           
-            <img class="imgT" id="imgRenderizable" src="img/2.jpg" alt="">
-            <input type="submit" id="modificar" name="modificar" value="Añadir" />
-           
-            <img class="imgT" id="imgRenderizable" src="img/3.jpg" alt="">
-            <input type="submit" id="modificar" name="modificar" value="Añadir" />
-           
-            <img class="imgT" id="imgRenderizable" src="img/4.jpg" alt="">
-            <input type="submit" id="modificar" name="modificar" value="Añadir" />
-           
-            <img class="imgT" id="imgRenderizable" src="img/5.jpg" alt="">
-            <input type="submit" id="modificar" name="modificar" value="Añadir" />
-           
-            <img class="imgT" id="imgRenderizable" src="img/6.jpg" alt="">
-            <input type="submit" id="modificar" name="modificar" value="Añadir" />
-           
-            <img class="imgT" id="imgRenderizable" src="img/7.jpg" alt="">
-            <input type="submit" id="modificar" name="modificar" value="Añadir" />
-           
-            <img class="imgT" id="imgRenderizable" src="img/8.jpg" alt="">
-            <input type="submit" id="modificar" name="modificar" value="Añadir" />
-           
-            <img class="imgT" id="imgRenderizable" src="img/1.jpg" alt="">
-            <input type="submit" id="modificar" name="modificar" value="Añadir" />
-           
-            <img class="imgT" id="imgRenderizable" src="img/2.jpg" alt="">
-            <input type="submit" id="modificar" name="modificar" value="Añadir" />
-           
-            <img class="imgT" id="imgRenderizable" src="img/3.jpg" alt="">
-            <input type="submit" id="modificar" name="modificar" value="Añadir" />
-           
-            <img class="imgT" id="imgRenderizable" src="img/4.jpg" alt="">
-            <input type="submit" id="modificar" name="modificar" value="Añadir" />
-           
-           
-           
         </article>
     </section>
 </div>
