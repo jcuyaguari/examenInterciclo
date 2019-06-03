@@ -126,6 +126,7 @@ function cantidad(num, val, cod) {
             if (isNaN(retVal) == false) {
                 if (retVal <= num) {
                     lista[cod] = retVal;
+                    console.log(lista[cod])
                     bandera= false;
                 } else {
                     alert('Debe ser un numero menor a ' + num + ' ya que solo se dispone de esas unidades');
@@ -136,11 +137,15 @@ function cantidad(num, val, cod) {
             }
         }
     } else {
-        //quitar de la lista
+        console.log(lista[cod])
+        lista.splice(cod, 1);
+        console.log(lista[cod])
     }
 
 }
 
 function carrito(){
-    
+    lista.forEach(function(element) {
+        console.log(element);
+      });
 }
