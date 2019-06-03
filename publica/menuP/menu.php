@@ -165,8 +165,7 @@
                     Nuestros proyectos inmediatos: ampliación de nuestra sección de arreglos florales dedicadas eventos
                     corporativos o fiestas ; incorporación de tipos de plantas de diferentes especies
                     personalidades de rabiosa actualidad en nuestra sección de reportajes; ampliación de nuestro
-                    diccionario
-                    base;
+                    diccionario base;
                     creación de un foro de documentación y consultas; y muchos más, siempre al servicio de nuestros
                     visitantes.
                     Ofrecemos un Servicio distinto. Un Servicio de Floristería con detalles Persas.Arte Iraní con flores
@@ -215,11 +214,18 @@
                     muchos más en el futuro.
                     Nuestros proyectos inmediatos: ampliación de nuestra sección de arreglos florales dedicadas eventos
                     corporativos o fiestas ; incorporación de tipos de plantas de diferentes especies
-                    personalidades de rabiosa actualidad en nuestra sección de reportajes; ampliación de nuestro
-                    diccionario
-                    base;
+                    personalizadas a su gusto, en la  actualidad en nuestra sección de reportajes disfrutara de varios modelos; ampliación de nuestro
+                    catalogo base;
                     creación de un foro de documentación y consultas; y muchos más, siempre al servicio de nuestros
                     visitantes.
+                    Ayudar a nuestros clientes hacer distintivas, duraderas y sustanciales mejoras en su desempeño 
+                    y construir una gran firma que atrae, desarrolla, excita y retiene personas excepcionales.
+                    Ofrecer servicios portuarios de excelencia, agregando valor a la cadena logística de nuestros
+                    clientes y apoyando el fortalecimiento del comercio exterior del país. 
+                    Generando rentabilidad a nuestros accionistas. Contando con un equipo humano competente 
+                    e infraestructura de alto nivel que nos permita ser competitivos en el sector portuario.
+                    Preservando la seguridad y salud de nuestros colaboradores, y actuando de manera 
+                    responsable con el medio ambiente y la sociedad.
                 </p>
                 <img class="imgT" id="imgRenderizable" src="img/m1.jpg" alt="">
                 <img class="imgT" id="imgRenderizable" src="img/m2.jpg" alt="">
@@ -261,7 +267,7 @@
                     
                 </p>
                 <!-- <img class="imgT" id="imgRenderizable" src="img/m1.jpg" alt=""> -->
-                <iframe width="860" height="615" src="https://www.youtube.com/embed/8KYiKkPWvMs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div style=”text-align: center”><iframe width="1320" height="615"  src="https://www.youtube.com/embed/8KYiKkPWvMs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
             </article>
         </section>
     </div>
