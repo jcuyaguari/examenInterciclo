@@ -128,6 +128,7 @@ function cantidad(num, val, cod) {
                 if (retVal <= num) {
                     listaCantidad.push(retVal);
                     listaCodigo.push(cod);
+                    bandera = false;
                 } else {
                     alert('Debe ser un numero menor a ' + num + ' ya que solo se dispone de esas unidades');
                 }
