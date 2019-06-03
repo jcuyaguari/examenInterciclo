@@ -27,7 +27,7 @@
     <input type="button" onclick="cambiar('6')" value="CONTACTO">
     <input type="button" onclick="cambiar('7')" value="LOGIN">
 
-    <div class="contenedor" style="border: solid 2px red" id='1'>
+    <div class="contenedor" style="border: solid 2px red" id='uno'>
         <section>
             <article>
                 <h1>Floristeria "Aura".</h1>
@@ -80,9 +80,9 @@
             </article>
         </section>
     </div>
-    <div class="contenedor" style="border: solid 2px red" id='2'>
+    <div class="contenedor" style="border: solid 2px red" id='dos'>
     </div>
-    <div class="contenedor" style="border: solid 2px red" id='3'>
+    <div class="contenedor" style="border: solid 2px red" id='tres'>
         <section>
             <article>
                 <h1>Quienes Somos</h1>
@@ -133,7 +133,7 @@
             </article>
         </section>
     </div>
-    <div class="contenedor" style="border: solid 2px red" id='4'>
+    <div class="contenedor" style="border: solid 2px red" id='cuatro'>
         <section>
             <article>
                 <h1>Mision</h1>
@@ -160,7 +160,7 @@
             </article>
         </section>
     </div>
-    <div class="contenedor" style="border: solid 2px red" id='5'>
+    <div class="contenedor" style="border: solid 2px red" id='cinco'>
         <section>
             <article>
                 <h1>Vision</h1>
@@ -176,7 +176,7 @@
             </article>
         </section>
     </div>
-    <div class="contenedor" style="border: solid 2px red" id='6'>
+    <div class="contenedor" style="border: solid 2px red" id='seis'>
         <section>
             <form class="for">
                 <a href="https://www.facebook.com/ " target="_blank" class="fa fa-facebook-square"></a>
@@ -224,7 +224,7 @@
 
         </section>
     </div>
-    <div class="contenedor" style="border: solid 2px red" id='7'>
+    <div class="contenedor" style="border: solid 2px red" id='siete'>
         <section>
             <fieldset>
                 <legend>Inicio de Sesion</legend>
