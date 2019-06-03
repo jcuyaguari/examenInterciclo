@@ -148,8 +148,8 @@ function cantidad(num, val, cod) {
 
 function carrito() {
     if (listaCodigo.length != 0) {
-        $('#listaCodigos').val(JSON.stringify(listaCodigo))
-        $('#listaCantidad').val(JSON.stringify(listaCantidad))
+        $('#listaCodigos').val(JSON.stringify(listaCodigo));
+        $('#listaCantidad').val(JSON.stringify(listaCantidad));
         var formData = new FormData($("#formCarrito")[0]);
         $.ajax({
             url: 'metodos.php',
@@ -163,7 +163,7 @@ function carrito() {
             res = resp.indexOf('**T**');
             if (res != -1) {
                 alert("PRODUCTO CREADO")
-                // document.location.reload();
+                document.location.reload();
             } else {
                 res = resp.indexOf('**N**');
                 if (res != -1) {
@@ -179,6 +179,3 @@ function carrito() {
     }
 }
 
-function administrador(cod) {
-
-}

@@ -9,21 +9,23 @@
     <link rel="stylesheet" type="text/css" href="../menuP/estilo.css">
     <link rel="stylesheet" type="text/css" href="../menuP/texto.css">
     <script type="text/javascript" src="controlador.js"></script>
+
 </head>
 
-<body onload="cambiar('uno')">
+<body>
     <?php
     include '../../config/conexionBD.php';
     $codigo = $_GET["codigo"];
     $sql = "SELECT * FROM usuario where usu_codigo=$codigo";
     $row = $conn->query($sql)->fetch_assoc();
     ?>
+    <h1 class='elegantshadow'>Floristeria "La Casa de las Flores"</h1>
     <form id="form" method="POST">
         <div id='uno'>
             <input type="hidden" id="codigo" name="codigo" value="<?php echo $codigo ?>" />
             <label for="cedula">Cedula (*)</label>
             <br>
-            <input type="text" id="cedulaUsu" name="cedulaUsu" value="<?php echo $row["usu_cedula"]; ?>" />
+            <input type="text" id="cedulaUsu" name="cedulaUsu" value="<?php echo $row["usu_cedula"]; ?>" disabled/>
             <br>
             <label for="nombres">Nombres (*)</label>
             <br>
@@ -51,17 +53,14 @@
             <br>
             <label for="ROL">Rol de Usuario (*)</label>
             <br>
-            <input type="text" id="rol" name="rol" value="<?php echo $row["usu_rol"]; ?>" />
+            <input type="text" id="rol" name="rol" value="<?php echo $row["usu_rol"]; ?>" disabled/>
             <br>
             <input class="txt" type="button" id="eliminar" name="eliminar" value="ELIMINAR" onclick="eliminarUsuario()" />
-            <input type="reset" id="regresar" name="regresar" value="REGRESAR" onclick="location.href='../menuP/menu.php?codigo=<?php echo $codigo?>'">
-            <input type="reset" id="salir" name="salir" value="SALIR" onclick="location.href='login.html'">
-            <input class="txt" type="button" id="eliminar" name="eliminar" value="ELIMINAR" onclick="actualizarUsuario()" />
-
-
-            <a href="modificar.php?codigo=<?php echo $row["usu_codigo"]; ?>&rol=USER&cod=<?php echo $row["usu_codigo"]; ?>"><input type="button" id="modifcar" name="modifcar" value="Modificar"></a>
-            <a href="cambiar_contrasena.php?codigo=<?php echo $row["usu_codigo"]; ?>&rol=USER&cod=<?php echo $row["usu_codigo"]; ?>"><input type="button" id="cambiar" name="cambiar" value="Cambiar Contraseña"></a>
-            <a href="../../../config/cerrar_sesion.php"><input type="button" id="cancelar" name="cancelar" value="Salir"></a>
+            <input class="txt" type="button" id="actualizar" name="actualizar" value="ACTUALIZAR" onclick="actualizarUsuario()" />
+            <input class="txt" type="button" id="AContrasena" name="AContrasena" value="CAMBIAR CONTRASEÑA" onclick="actualizarContrasena()" />
+            <br>
+            <input type="reset" id="regresar" name="regresar" value="REGRESAR" onclick="location.href='../menuP/menu.php?codigo=<?php echo $codigo ?>'">
+            <input  type="reset" id="salir" name="salir" value="SALIR" onclick="location.href='login.html'">
 
         </div>
         <?php
