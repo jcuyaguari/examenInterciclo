@@ -17,7 +17,7 @@
             <a class="b " href="../Usuarios/controlador/index.php">Administrar Usuarios</a>
             <a class="c " href="#">Administrar Admin</a>
             <a class="d" href="../Locales/VistaLocal.php">Administrar Locales</a>
-            <a class="e " href="#">Administrar Facturas</a>
+            <a class="e" href="#">Administrar Facturas</a>
             <a class="f " href="../pedidos/VistaPedido.php">Administrar Pedidos</a>
         </div>
     </div>
