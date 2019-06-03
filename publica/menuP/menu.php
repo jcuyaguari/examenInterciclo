@@ -19,7 +19,7 @@ $Codigo = $_GET['codigo'];
 <body onload="cambiar('dos')">
     <form id='formCarrito' method="POST">
         <header>
-        <h1 class='elegantshadow'>Floristeria "La Casa de las Flores"</h1>
+            <h1 class='elegantshadow'>Floristeria "La Casa de las Flores"</h1>
             <nav>
                 <ul>
                     <li>
@@ -91,18 +91,11 @@ $Codigo = $_GET['codigo'];
                                 <i class="fa fa-user-o" aria-hidden="true"></i>
                             </div>
 
-                <li>
-                    <a href="../user/IndexUsuario.php?codigo= <?php echo $Codigo ?>">
-                    
-                        <div class="name" data-text="Home">ADMINISTRAR MI CUENTA</div>
-                        <div class="icon">
-                            <i class="fa fa-user-o" aria-hidden="true"></i>
-                            <i class="fa fa-user-o" aria-hidden="true"></i>
-                        </div>
+                            </a>
 
-                    </a>
-                    
-                </li>
+                    </li>
+                </ul>
+            </nav>
 
         </header>
 
