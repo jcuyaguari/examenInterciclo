@@ -12,7 +12,7 @@
 </head>
 
 
-<body onload="cambiar('cuatro')">
+<body onload="cambiar('dos')">
     <?php
     include '../../config/conexionBD.php';
     ?>
