@@ -202,7 +202,7 @@ function iniciar() {
                     document.getElementById('respuesta').innerHTML = this.responseText;
                     var $codigo = document.getElementById('codigo').value;
 
-                    location.href = '../Usuarios/controlador/CRUD_CLIENTE.php?codigo=' + $codigo;
+                    location.href = '../admin/indexAdministrrador.php?codigo=' + $codigo;
                 } else {
                     alert("USUARIO NO ENCONTRADO");
                     document.location.reload();
