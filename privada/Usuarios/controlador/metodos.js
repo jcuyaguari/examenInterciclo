@@ -149,6 +149,7 @@ function actualizarCliente() {
         contentType: false,
     }).done(function (resp) {
         res = resp.indexOf('**T**');
+        alert(resp)
         if (res != -1) {
             alert("USUARIO ACTUALIZADO")
             document.location.reload();

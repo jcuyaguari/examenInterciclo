@@ -1,9 +1,11 @@
-<?php
- session_start();
- if(!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE || $_SESSION['rol']==='admin'){
- header("Location: /examenInterciclo/publica/user/login.html");
- }
+
+<?php 
+session_start(); 
+if(!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE || $_SESSION['ROL'] === 'USER'){ 
+    header("Location: /examenInterciclo/publica/user/login.html"); 
+    } 
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -26,6 +28,7 @@
             <a class="d" href="../Locales/VistaLocal.php">Administrar Locales</a>
             <a class="e" href="#">Administrar Facturas</a>
             <a class="f " href="../pedidos/VistaPedido.php">Administrar Pedidos</a>
+            <a class="f " href="../../config/cerar_session.php">Cerrar session</a>
         </div>
     </div>
 

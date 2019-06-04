@@ -1,6 +1,4 @@
-nombre de la tabla: examen
 
-*****CREACION DE PRODUCTOS*****
 CREATE TABLE `examen`.`productos` (
   `pro_codigo` int(8) NOT NULL AUTO_INCREMENT,
   `pro_nombre` varchar(250) NOT NULL,
@@ -14,8 +12,6 @@ CREATE TABLE `examen`.`productos` (
   ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 
-
-*****CREACION DE LOCALES*****
 CREATE TABLE IF NOT EXISTS `Local` (
   `loc_id` int(11) NOT NULL AUTO_INCREMENT,
   `loc_nombre` VARCHAR(50) NOT NULL,
@@ -28,7 +24,6 @@ CREATE TABLE IF NOT EXISTS `Local` (
 ENGINE = InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
 
-*****CREACION DE USUARIOS*****
 CREATE TABLE `usuario` (
 `usu_codigo` int(11) NOT NULL AUTO_INCREMENT,
 `usu_cedula` varchar(10) NOT NULL,
@@ -36,7 +31,7 @@ CREATE TABLE `usuario` (
 `usu_apellidos` varchar(50) NOT NULL,
 `usu_direccion` varchar(75) NOT NULL,
 `usu_telefono` varchar(20) NOT NULL,
-`usu_correo` varchar(20) NOT NULL,
+`usu_correo` varchar(80) NOT NULL,
 `usu_password` varchar(255) NOT NULL,
 `usu_fecha_nacimiento` date NOT NULL,
 `usu_eliminado` varchar(10) NOT NULL DEFAULT 'N',
@@ -64,7 +59,6 @@ FOREIGN KEY (`ped_cod_local`) REFERENCES `local` (`loc_id`)
 
 
 
-*****detalle pedido*****
 CREATE TABLE IF NOT EXISTS `Det_Ped` (
   `det_ped_id` int(11) NOT NULL AUTO_INCREMENT,
   `det_ped_producto` int(11)NOT NULL,
@@ -77,8 +71,6 @@ CREATE TABLE IF NOT EXISTS `Det_Ped` (
 )ENGINE = InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
 
-
-*****FACTURA*****
 CREATE TABLE IF NOT EXISTS `factura` (
   `fac_id` int(11) NOT NULL AUTO_INCREMENT,
   `fac_fecha` timestamp NULL DEFAULT NULL,
@@ -92,7 +84,6 @@ CREATE TABLE IF NOT EXISTS `factura` (
 )ENGINE = InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
 
-***************FACTRUA detalle*************
 CREATE TABLE IF NOT EXISTS `fac_detalle` (
   `facd_id` int(11) NOT NULL AUTO_INCREMENT,
   `facd_pedido` int(11) NOT NULL,
@@ -103,18 +94,3 @@ CREATE TABLE IF NOT EXISTS `fac_detalle` (
 )ENGINE = InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
 
-
-********UsuarioAdmin*************
-CREATE TABLE `examen`.`cliente` (
-  `cli_id` int(11) NOT NULL,
-  `cli_cedula` varchar(10) NOT NULL,
-  `cli_nombre` varchar(50) NOT NULL,
-  `cli_apellido` varchar(50) NOT NULL,
-  `cli_direccion` varchar(75) NOT NULL,
-  `cli_telefono` varchar(20) NOT NULL,
-  `cli_correo` varchar(20) NOT NULL,
-  `cli_password` varchar(255) NOT NULL,
-  `cli_fecha_nacimiento` date NOT NULL,
-  `cli_eliminado` varchar(1) NOT NULL DEFAULT 'N',
-  `cli_rol` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;

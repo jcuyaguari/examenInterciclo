@@ -76,7 +76,7 @@ h1.elegantshadow {
   }
 
 .txt{
-    width:  380px;
+    width:  250px;
 }
 
 input{
@@ -89,45 +89,47 @@ input{
     color:lawngreen;
 }
 
- #uno{
+#uno{
     position: absolute;
-    top: 5%;
+    top: 13%;
     left: 50%;
     transform: translate(-50%, 50%);
-    background: rgb(136, 216, 248); 
+    background: rgb(136, 216, 248);
     border-radius: 10px ;
     margin: 1 center;
     padding: 10px 20px;
 }
 #dos{
-    position: absolute;
-    top:22%;
-    left: 50%;
-    transform: translate(-50%, 50%);
-    background: rgb(136, 216, 248); 
+    position: initial;
+    margin-top: 150px;
+    margin-left: 20%;
+    margin-inline-end: 20%;
+    background: rgb(136, 216, 248);
     border-radius: 10px ;
-    margin: 1 center;
     padding: 10px 20px;
 }
 #tres{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, 50%);
-    background: rgb(136, 216, 248); 
+    position: initial;
+    margin-top: 150px;
+    margin-left: 20%;
+    margin-inline-end: 20%;
+    background: rgb(136, 216, 248);
     border-radius: 10px ;
-    margin: 1 center;
     padding: 10px 20px;
 }
 #cuatro{
     position: absolute;
-    top: 50%;
+    top: 5%;
     left: 50%;
     transform: translate(-50%, 50%);
-    background: rgb(136, 216, 248); 
+    background: rgb(136, 216, 248);
     border-radius: 10px ;
     margin: 1 center;
     padding: 10px 20px;
+}
+
+#actualizacion{
+    height: 400px;
 }
 
 img{
