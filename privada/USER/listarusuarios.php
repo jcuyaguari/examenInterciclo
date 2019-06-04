@@ -21,7 +21,10 @@
 </head>
 
 <body background="css/correo2.jpg">
-    <h1>ADMINISTRADOR</h1>
+    <header>
+
+    <h1 class='elegantshadow'>ADMINISTRADOR</h1>
+    </header>
     <legend>BUSCAR USUARIO</legend>
     <br>
     <label for="descripcion">Ingresar la cedula</label>
