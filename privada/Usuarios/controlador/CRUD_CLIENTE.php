@@ -14,7 +14,7 @@
 </head>
 
 
-<body onload="cambiar('cuatro')">
+<body onload="cambiar('uno')">
 <?php
     include '../../../config/conexionBD.php';
     ?>
@@ -79,6 +79,9 @@
             <br>
             <br>
             <br>
+            <br>
+            <br>
+            <br>
         <table border>
         <tr>
                     <td><label for="cedula">Cedula (*)</label></td>
@@ -125,7 +128,7 @@
             <tr>
                 <td colspan=" 2" style="text-align: center">
                     <input class="txt" type="button" id="enviar" name="enviar" value="Aceptar" onclick="crearCliente()" />
-                    <input class="txt" type="button" id="cancelar" name="cancelar" value="Cancelar" onclick="cancelar()" />
+                    <input class="txt" type="button" id="cancelar" name="cancelar" value="Cancelar" onclick="location.href='../../login/login.html'" />
                 </td>
             </tr>
         </table border>
