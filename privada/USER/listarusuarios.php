@@ -1,9 +1,3 @@
-<?php
-session_start();
-if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
-    header("Location: /SistemaDeGestion/public/vista/login.html");
-}
-?>
 <!DOCTYPE html>
 <html>
 
@@ -29,9 +23,9 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
 <body background="css/correo2.jpg">
     <legend>ADMINISTRADOR</legend>
     <a href='../../../config/cerrar_sesion.php'>Cerrar Sesión </a>
-    
+
     <table style="border-style: solid">
-       
+
 
         <legend>USUARIOS REGISTRADOS</legend>
         <tr>
@@ -67,13 +61,13 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
 
                 if ($row['usu_eliminado'] == 'S') {
                     echo " <td>" . 'Eliminado' . "</td>";
-                    echo "<td><input type='button' id='eliminar' name='eliminar' value='ACTIVAR' onclick='elimi()' /></td>";
+                    echo "<td><input type='button' id='reactivar' name='reactivar' value='ACTIVAR' onclick='reactivar(" . $row["usu_codigo"] . ")' /></td>";
                 } else {
                     echo " <td> " . 'Activo' . "</td> ";
-                    echo "<td><input type='button' id='eliminar' name='eliminar' value='ELIMINAR' onclick='eliminar(".$row["usu_codigo"].")' /></td>";
+                    echo "<td><input type='button' id='eliminar' name='eliminar' value='ELIMINAR' onclick='eliminar(" . $row["usu_codigo"] . ")' /></td>";
                 }
-                echo "<td><input type='button' id='eliminar' name='eliminar' value='MODIFICAR' onclick='actualizarContrasena()' /></td>";
-                echo "<td><input type='button' id='eliminar' name='eliminar' value='CAMBIAR CONTRASEÑA' onclick='actualizarContrasena()' /></td>";;
+                echo "<td><input type='button' id='eliminar' name='eliminar' value='MODIFICAR' onclick='actualizarContrasena(" . $row["usu_codigo"] . ")' /></td>";
+                echo "<td><input type='button' id='cambiar' name='cambiar' value='CAMBIAR CONTRASEÑA' onclick='actualizarContrasena(" . $row["usu_codigo"] . ")' /></td>";;
 
                 echo "</tr>";
             }
