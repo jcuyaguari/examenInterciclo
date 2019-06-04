@@ -171,9 +171,9 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE || $_SESSIO
             <fieldset style="text-align: center">
                 <legend>BUSCAR PEDIDOS POR FECHA</legend>
                 <label for="fechaA">INGRESAR FECHA MAS ANTIGUA </label><br>
-                <input type="text" id="fechaA" name="fechaA" value="" placeholder="AAAA-MM-DD" /><br>
+                <input type="text" id="fechaA" name="fechaA" value="" placeholder="AAAA-MM-DD  00:00:00" /><br>
                 <label for="fechaA">INGRESAR FECHA MAS RECIENTE </label><br>
-                <input type="text" id="fechaN" name="fechaN" value="" placeholder="AAAA-MM-DD" /><br>
+                <input type="text" id="fechaN" name="fechaN" value="" placeholder="AAAA-MM-DD  00:00:00" /><br>
                 <input type='button' id='bus' name='bus' value='BUSCAR' onclick="buscar(fechaA.value,fechaN.value)" />
 
             </fieldset>
