@@ -14,7 +14,7 @@
     </header>
 
     <input class="txt" type="button" id="admin" name="admin" value="ADMIN" 
-    style="margin:250px;position:relative;width:328px;height:328px;background:#C4BD3C" onclick="location.href='login.html'"/>
+    style="margin:250px;position:relative;width:328px;height:328px;background:#C4BD3C" onclick="location.href='../privada/login/login.html'"/>
     <input class="txt" type="button" id="user" name="user" value="USER"
     style="margin:150px;position:relative;width:328px;height:328px;background:#C4BD3C" onclick="location.href='user/login.html'"/>
     
