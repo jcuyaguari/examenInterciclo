@@ -5,20 +5,67 @@
     <title>
         Locales
     </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script type="text/javascript" src="metodos.js"></script>
     <link href="estilo.css" rel="stylesheet" />
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 
 <body onload="cambiar('1')">
     <?php
     include '../../config/conexionBD.php';
     ?>
-    <input type="button" onclick="cambiar('1')" value="A&Ntilde;ADIR NUEVO LOCAL">
+    <header>
+
+        <h1 class='elegantshadow'>Locales</h1>
+    </header>
+    <!-- <input type="button" onclick="cambiar('1')" value="A&Ntilde;ADIR NUEVO LOCAL">
 
     <input type="button" onclick="cambiar('2')" value="EDITAR LOCAL">
 
-    <input type="button" onclick="cambiar('3')" value="ELIMINAR LOCAL">
+    <input type="button" onclick="cambiar('3')" value="ELIMINAR LOCAL"> -->
 
+    <ul>
+        <li>
+
+            <a href=" #" onclick="cambiar('1')">
+                <div class="name" data-text="Home">A&Ntilde;ADIR NUEVO LOCAL</div>
+                <div class="icon">
+                <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                   
+                </div>
+
+            </a>
+        </li>
+
+        <li>
+
+            <a href=" #" onclick="cambiar('2')">
+                <div class="name" data-text="Home">EDITAR LOCAL</div>
+                <div class="icon">
+                <i class="fa fa-pencil-square" aria-hidden="true"></i>
+                <i class="fa fa-pencil-square" aria-hidden="true"></i>
+
+                </div>
+
+            </a>
+        </li>
+
+        <li>
+
+            <a href=" #" onclick="cambiar('3')">
+                <div class="name" data-text="Home">ELIMINAR LOCAL</div>
+                <div class="icon">
+                <i class="fa fa-trash" aria-hidden="true"></i>
+                <i class="fa fa-trash" aria-hidden="true"></i>
+
+                </div>
+
+            </a>
+        </li>
+    </ul>
 
 
     <form id="form" method="POST">
@@ -43,7 +90,7 @@
                 <br>
                 <input type="text" id="descripcion" name="descripcion" value="" placeholder="DESCRIPCION" />
                 <br><br>
-                <input class="txt" type="button" id="enviar" name="enviar" value="ACEPTAR" onclick="crearLocal()" />
+                <input class="" type="button" id="enviar" name="enviar" value="ACEPTAR" onclick="crearLocal()" />
                 <input type="button" id="salir" name="salir" value="SALIR" />
                 <br>
             </fieldset>
@@ -61,7 +108,7 @@
                     <br>
                 </fieldset>
                 <fieldset id="editarLoc">
-                    
+
                 </fieldset>
 
             </form>
