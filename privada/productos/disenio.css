@@ -87,12 +87,13 @@ h1.elegantshadow {
     font-size: 150%;
     text-align: center;
     color:lawngreen;
-}#uno{
+}
+#uno{
     position: absolute;
     top: 5%;
     left: 50%;
     transform: translate(-50%, 50%);
-    background: rgb(255, 187, 41); 
+    background: rgb(136, 216, 248);
     border-radius: 10px ;
     margin: 1 center;
     padding: 10px 20px;
@@ -107,7 +108,7 @@ h1.elegantshadow {
     margin-top: 150px;
     margin-left: 32%;
     margin-inline-end: 31%;
-    background: rgb(255, 187, 41); 
+    background: rgb(136, 216, 248);
     border-radius: 10px ;
     padding: 10px 20px;
 }
@@ -117,7 +118,7 @@ h1.elegantshadow {
     margin-top: 150px;
     margin-left: 32%;
     margin-inline-end: 31%;
-    background: rgb(255, 187, 41); 
+    background: rgb(136, 216, 248);
     border-radius: 10px ;
     padding: 10px 20px;
 }
@@ -128,7 +129,7 @@ h1.elegantshadow {
     top: 5%;
     left: 50%;
     transform: translate(-50%, 50%);
-    background: rgb(255, 187, 41); 
+    background: rgb(136, 216, 248);
     border-radius: 10px ;
     margin: 1 center;
     padding: 10px 20px;
