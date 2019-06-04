@@ -75,6 +75,10 @@
         <div id='uno'>
             <br>
             <br>
+            <br>
+            <br>
+            <br>
+            <br>
         <table border>
         <tr>
                     <td><label for="cedula">Cedula (*)</label></td>
