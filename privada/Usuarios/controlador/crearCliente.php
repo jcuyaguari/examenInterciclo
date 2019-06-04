@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html>
 
@@ -10,14 +8,12 @@
     <script src="metodos.js"> </script>
 </head>
 
-    <body>
+<body>
         <?php
             //incluir conexión a la base de datos
             include '../../../config/conexionBD.php';
-           
             $opc = $_POST['opc'];
             switch ($opc) {
-        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             case 'crear':
             $cedula= isset($_POST["cedula"]) ? trim($_POST["cedula"]) : null;
             $nombres= isset($_POST["nombres"]) ? mb_strtoupper(trim($_POST["nombres"]), 'UTF-8') : null;    
@@ -136,13 +132,13 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             case 'buscarAct':
             $datos = mb_strtoupper($_POST['codigo']);
-
-            $sql = "SELECT * FROM cliente WHERE cli_cedula  LIKE '%$datos%' ";
+            $sql = "SELECT * FROM cliente WHERE cli_eliminado = 'N' AND cli_id LIKE '%$datos%'  OR  cli_eliminado = 'N'
+            AND cli_cedula LIKE '%$datos%'  ";
 
             $row = $conn->query($sql)->fetch_assoc();
             if ($row > 0) {
                 ?>
-                <input type="txt" id="codigo" name="codigo" value=" <?php echo $row['cli_cedula'] ?>" hidden />
+                <input type="txt" id="codigo" name="codigo" value=" <?php echo $row['cli_id'] ?>" hidden />
                 
                 <table border>
                 <tr>
@@ -196,16 +192,17 @@
                     </tr>
                     <tr>
                     <td colspan=" 2" style="text-align: center">
-                        <input class="txt" type="button" id="enviar" name="enviar" value="ACTUALIZAR USUARIO" onclick="actualizarCliente()" />
+                        <input class="txt" type="button" id="enviar" name="enviar" value="ACTUALIZAR USUARIO" 
+                        onclick="actualizarCliente()" />
                     </td>
                 </tr>
             </table border>
         <?php
     } else {
-        echo "<b>NO SE ENCOTRO EL PRODUCTO</b>";
+        echo "<b>NO SE ENCOTRO EL Usuario</b>";
     }
     break;
-        }
+}
 $conn->close();
 ?>
 

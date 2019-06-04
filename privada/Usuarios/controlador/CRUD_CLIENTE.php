@@ -47,7 +47,7 @@
 
         <li>
             <a href="#" onclick="cambiar('tres')">
-                <div class="name" data-text="Home">ACTUALIZAR CLIENTES</div>
+                <div class="name" data-text="Home">ELIMINAR CLIENTES</div>
                 <div class="icon">
                     <i class="fa fa-search" aria-hidden="true"></i>
                     <i class="fa fa-search" aria-hidden="true"></i>
@@ -58,7 +58,7 @@
 
         <li>
             <a href="#" onclick="cambiar('cuatro')">
-                <div class="name" data-text="Home">ELIMINAR CLIENTES</div>
+                <div class="name" data-text="Home">ACTUALIZAR CLIENTES</div>
                 <div class="icon">
                     <i class="fa fa-pencil-square" aria-hidden="true"></i>
                     <i class="fa fa-pencil-square" aria-hidden="true"></i>
@@ -167,7 +167,7 @@
 <div id='tres'>
 <label for="precio">Ingrese el numero de cedula</label><br>
 <input class="txt" type="text" id="buscarCedula" name="buscarCedula" value="" 
-onkeyup="buscarAct(this.value)" 
+onkeyup="buscar(this.value)" 
 placeholder="Ingrese el codigo o nombre" />
 <div id="busqueda">
 </div>
@@ -177,15 +177,17 @@ placeholder="Ingrese el codigo o nombre" />
 <div id='cuatro'>
 <label for="precio">Ingrese el numero de cedula</label><br>
 <input class="txt" type="text" id="codigo" name="codigo" value=""
- onkeyup="buscar(this.value)" 
+ onkeyup="buscarAct(this.value)" 
 placeholder="Ingrese el codigo o nombre" />
-
+<br>
+<br>
 <div id="actualizacion">
 </div>
 </div>
-</form>
+
 <?php
 $conn->close();
 ?>
+</form>
 </body>
 </html>

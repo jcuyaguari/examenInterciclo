@@ -94,10 +94,10 @@ function buscar(txt) {
             processData: false,
             contentType: false,
         }).done(function (resp) {
-            document.getElementById('actualizacion').innerHTML = resp;
+            document.getElementById('busqueda').innerHTML = resp;
         });
     } else {
-        document.getElementById('actualizacion').innerHTML = "";
+        document.getElementById('busqueda').innerHTML = "";
     }
 }
 
@@ -109,7 +109,7 @@ function cancelar(){
 
 
 
-function eliminar(cod) {
+function eliminar(codigo) {
     document.getElementById('opc').value = 'eliminar';
     if (window.XMLHttpRequest) {
         xmlhttp = new XMLHttpRequest();
@@ -131,7 +131,7 @@ function eliminar(cod) {
     };
     xmlhttp.open("POST", "crearCliente.php", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.send("opc=eliminar&cod=" + cod);
+    xmlhttp.send("opc=eliminar&codigo=" + codigo);
 }
 
 
@@ -153,10 +153,10 @@ function actualizarCliente() {
             alert("USUARIO ACTUALIZADO")
             document.location.reload();
         } else {
-                alert('USUARIO ACTUALIZADO' )
-                document.location.reload();
+            alert('no se pudo actualizar>>' + res)
             }
     });
+
     }
     
 
@@ -174,10 +174,10 @@ function buscarAct(txt) {
             processData: false,
             contentType: false,
         }).done(function (resp) {
-            document.getElementById('busqueda').innerHTML = resp;
+            document.getElementById('actualizacion').innerHTML = resp;
         });
     } else {
-        document.getElementById('busqueda').innerHTML = "";
+        document.getElementById('actualizacion').innerHTML = "";
     }
 
 }
