@@ -8,6 +8,7 @@
 <body>
     <?php
     include '../../config/conexionBD.php';
+    
     $opc = $_POST['opc'];
     switch ($opc) {
         case 'crear':
