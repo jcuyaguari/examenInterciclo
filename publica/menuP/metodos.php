@@ -10,11 +10,12 @@
     $listaCantidad =  json_decode($_POST['listaCantidad']);
     $listaCodigos =  json_decode($_POST['listaCodigos']);
     $codigoU = $_POST['codigo'];
-    
+    $local = $_POST['local'];
     date_default_timezone_set("America/Guayaquil");
     $fecha = date('Y-m-d H:i:s', time());
 
-    $sql = "INSERT INTO pedido VALUES (0, '$fecha', '$codigoU', 'ACTIVO', 0)";
+    $sql = "INSERT INTO pedido VALUES (0, '$fecha', '$codigoU', '$local', 'CREADO', 0)";
+    echo $sql;
     if ($conn->query($sql) === TRUE) {
         $sql1 = "SELECT ped_codigo FROM pedido WHERE ped_codigo = (SELECT MAX(ped_codigo) from pedido)";
         $result = $conn->query($sql1);

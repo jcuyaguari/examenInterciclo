@@ -49,17 +49,18 @@ UNIQUE KEY `usu_cedula` (`usu_cedula`)
 
 
 
-********CREACION de pedido *************
 CREATE TABLE `pedido` (
 `ped_codigo` int(11) NOT NULL AUTO_INCREMENT,
 `ped_fecha` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
 `ped_cod_user` int(11) NOT NULL,
+`ped_cod_local` int(11) NOT NULL,
 `ped_estado` varchar(50) NOT NULL,
 `usu_eliminado` boolean NOT NULL DEFAULT '0',
 PRIMARY KEY (`ped_codigo`),
-FOREIGN KEY (`ped_cod_user`)   
-REFERENCES `usuario` (`usu_codigo`))
- ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+FOREIGN KEY (`ped_cod_user`) REFERENCES `usuario` (`usu_codigo`),
+FOREIGN KEY (`ped_cod_local`) REFERENCES `local` (`loc_id`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+
 
 
 

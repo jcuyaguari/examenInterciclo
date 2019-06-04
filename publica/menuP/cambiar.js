@@ -148,6 +148,7 @@ function cantidad(num, val, cod) {
 
 function carrito() {
     if (listaCodigo.length != 0) {
+        if(document.getElementById('local').selectedIndex != 0){
         $('#listaCodigos').val(JSON.stringify(listaCodigo));
         $('#listaCantidad').val(JSON.stringify(listaCantidad));
         var formData = new FormData($("#formCarrito")[0]);
@@ -174,6 +175,9 @@ function carrito() {
 
             }
         });
+    }else{
+        alert('Debe selecionar el local')
+    }
     } else {
         alert('Debe selecionar uno o mas productos')
     }
