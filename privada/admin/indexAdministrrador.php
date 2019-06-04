@@ -6,6 +6,7 @@ if(!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE || $_SESSION
     } 
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 

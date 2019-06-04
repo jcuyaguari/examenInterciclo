@@ -22,7 +22,7 @@ if(!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE || $_SESSION
     ?>
     <header>
 
-    <h1 class='elegantshadow'>Pedido</h1>
+        <h1 class='elegantshadow'>Pedido</h1>
     </header>
 
     <!-- <input type="button" onclick="cambiar('1')" value="Listar Pedidos Pendientes" style="background-color: red;">
@@ -31,15 +31,15 @@ if(!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE || $_SESSION
     <input type="button" onclick="cambiar('4')" value="Editar Entrega" style="background-color: mediumpurple;"> -->
 
     <!-- desde aquirrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr/ -->
-      <ul>
+    <ul>
         <li>
 
             <a href=" #" onclick="cambiar('1')">
                 <div class="name" data-text="Home">Listar Pedidos Pendientes</div>
                 <div class="icon">
-                <i class="fa fa-plus-square" aria-hidden="true"></i>
-                <i class="fa fa-plus-square" aria-hidden="true"></i>
-                
+                    <i class="fa fa-plus-square" aria-hidden="true"></i>
+                    <i class="fa fa-plus-square" aria-hidden="true"></i>
+
                 </div>
 
             </a>
@@ -49,8 +49,8 @@ if(!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE || $_SESSION
             <a href="#" onclick="cambiar('2')">
                 <div class="name" data-text="Home">Listar Pedidos Entregados</div>
                 <div class="icon">
-                <i class="fa fa-list" aria-hidden="true"></i>
-                <i class="fa fa-list" aria-hidden="true"></i>
+                    <i class="fa fa-list" aria-hidden="true"></i>
+                    <i class="fa fa-list" aria-hidden="true"></i>
                 </div>
 
             </a>
@@ -60,8 +60,8 @@ if(!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE || $_SESSION
             <a href="#" onclick="cambiar('3')">
                 <div class="name" data-text="Home">Buscar Pedido</div>
                 <div class="icon">
-                <i class="fa fa-search" aria-hidden="true"></i>   
-                <i class="fa fa-search" aria-hidden="true"></i>   
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                    <i class="fa fa-search" aria-hidden="true"></i>
                 </div>
 
             </a>
@@ -71,8 +71,8 @@ if(!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE || $_SESSION
             <a href="#" onclick="cambiar('4')">
                 <div class="name" data-text="Home">Editar Entrega</div>
                 <div class="icon">
-                <i class="fa fa-pencil-square" aria-hidden="true"></i>
-                <i class="fa fa-pencil-square" aria-hidden="true"></i>
+                    <i class="fa fa-pencil-square" aria-hidden="true"></i>
+                    <i class="fa fa-pencil-square" aria-hidden="true"></i>
                 </div>
 
             </a>
@@ -81,54 +81,154 @@ if(!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE || $_SESSION
     <!-- desde aquirrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr/ -->
     <form id="form" method="POST">
         <div id='1'>
-            <h1>
-                Listar Pedidos Pendientes
-            </h1>
-            <h1>A&Ntilde;ADIR NUEVO LOCAL</h1>
-            <fieldset>
-                <legend>NO ENTREGADOS</legend>
-                <table id='tab_pedido' style="border-style: solid">
-                    <tr>
+            <br><br><br><br><br><br><br><br>
+            <fieldset style="text-align: center">
 
-                        <th>CLIENTE |</th>
-                        <th>FECHA DE PEDIDO |</th>
-                        <th>ESTADO |</th>
-                        <th>TELEFONO |</th>
-                        <th>CLIENTE </th>
+                <legend>CONFITRMAR ENVIO</legend>
+                <table border>
+                    <tr>
+                        <th>CODIGO</th>
+                        <th>FECHA DE GENERACION</th>
+                        <th>LOCAL</th>
+                        <th>ESTADO</th>
+                        <th>VER DETALLE</th>
+                        <th>ELIMINAR</th>
+                        <th>ENVIAR</th>
                     </tr>
-                    <br>
-                </table>
+                    <?php
+
+                    $sql = "SELECT  * 
+                    FROM pedido p, local l where usu_eliminado=0 and ped_estado!='CREADO'";
+                    $result = $conn->query($sql);
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            echo "<tr>";
+                            echo " <td>" . $row["ped_codigo"] . "</td>";
+                            echo " <td>" . $row["ped_fecha"] . "</td>";
+                            echo " <td>" . $row["loc_nombre"] . "</td>";
+                            echo " <td>" . $row['ped_estado'] . "</td>";
+                            echo " <td><input type='button' id='det' name='det' value='VER DETALLE' onclick='detalle(" . $row["ped_codigo"] . ")'/></td>";
+                            echo " <td><input type='button' id='ele' name='ele' value='ELMINIAR' onclick='eliminarPed(" . $row["ped_codigo"] . ")'/></td>";
+                            echo "<td><input type='button' id='env' name='env' value='ENVIAR' onclick='enviarPed(" . $row["ped_codigo"] . ")'/></td>";
+                            echo "<span class='slider' ></s pan>";
+                            echo "</tb>";
+                            echo "</tr>";
+                        }
+                    } else {
+                        echo "<tr>";
+                        echo " <td colspan='4'> UD NO CUENTA CON PEDIDOS POR GENERAR FACTURAS</td> ";
+                        echo "</tr>";
+                    }
+                    ?>
+                </table border>
+            </fieldset>
+            <fieldset>
+                <legend>CONFIRMAR ENTREGA</legend>
+                <div id='detallePedido'>
+
+                </div>
             </fieldset>
         </div>
-        <div id='2'>
-            <h1>A&Ntilde;ADIR NUEVO LOCAL</h1>
-            <fieldset>
-                <legend>ENTREGADOS</legend>
-                <table id='tab_pedido' style="border-style: solid">
-                    <tr>
 
-                        <th>CLIENTE</th>
-                        <th>FECHA DE PEDIDO</th>
+        <div id='2'>
+            <br><br><br><br><br><br><br><br>
+            <fieldset style="text-align: center">
+
+                <legend>PEDIDOS POR FACTURAR</legend>
+                <table border>
+                    <tr>
+                        <th>CODIGO</th>
+                        <th>FECHA DE GENERACION</th>
+                        <th>LOCAL</th>
                         <th>ESTADO</th>
-                        <th>TELEFONO CLIENTE</th>
+                        <th>CANCELAR ENVIO</th>
+                        <th>ENTREGA COMPLATADA</th>
                     </tr>
-                    <br>
-                </table>
+                    <?php
+                    $sql = "SELECT  * 
+                    FROM pedido p, local l where usu_eliminado=0 and ped_estado='EN CAMINO' or ped_estado='ENTREGADO' ";
+                    $result = $conn->query($sql);
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            echo "<tr>";
+                            echo " <td>" . $row["ped_codigo"] . "</td>";
+                            echo " <td>" . $row["ped_fecha"] . "</td>";
+                            echo " <td>" . $row["loc_nombre"] . "</td>";
+                            echo " <td>" . $row['ped_estado'] . "</td>";
+                            echo " <td><input type='button' id='ele' name='ele' value='CANCELAR' onclick='eliminarPed(" . $row["ped_codigo"] . ")'/></td>";
+                            echo "<td><input type='button' id='env' name='env' value='ENVIAR' onclick='entregaPed(" . $row["ped_codigo"] . ")'/></td>";
+                            echo "<span class='slider' ></s pan>";
+                            echo "</tb>";
+                            echo "</tr>";
+                        }
+                    } else {
+                        echo "<tr>";
+                        echo " <td colspan='4'> UD NO CUENTA CON PEDIDOS POR GENERAR FACTURAS</td> ";
+                        echo "</tr>";
+                    }
+                    ?>
+                </table border>
             </fieldset>
+
         </div>
         <div id='3'>
-            <h1>A&Ntilde;ADIR NUEVO LOCAL</h1>
-            <fieldset>
-                <legend>NO ENTREGADOS</legend>
-                <h1>hola</h1>
-            </fieldset>
-        </div>
-        <div id='4'>
-            <h1>A&Ntilde;ADIR NUEVO LOCAL</h1>
-            <fieldset>
-                <legend>NO ENTREGADOS</legend>
+            <br><br><br><br><br><br><br><br>
+            <fieldset style="text-align: center">
+                <legend>BUSCAR PEDIDOS POR FECHA</legend>
+                <label for="fechaA">INGRESAR FECHA MAS ANTIGUA </label><br>
+                <input type="text" id="fechaA" name="fechaA" value="" placeholder="AAAA-MM-DD" /><br>
+                <label for="fechaA">INGRESAR FECHA MAS RECIENTE </label><br>
+                <input type="text" id="fechaN" name="fechaN" value="" placeholder="AAAA-MM-DD" />
+                <input type='button' id='bus' name='bus' value='BUSCAR' onclick='buscar(fechaA)'/>
+
+
+
+
+                <table border>
+                    <tr>
+                        <th>CODIGO</th>
+                        <th>FECHA DE GENERACION</th>
+                        <th>LOCAL</th>
+                        <th>ESTADO</th>
+                    </tr>
+                    <?php
+                    $fechaA="fechaA.value";
+                    echo("$fechaA");
+                    $sql = "SELECT  * 
+                    FROM pedido p, local l where usu_eliminado=0 and ped_estado='EN CAMINO' or ped_estado='ENTREGADO' ";
+                    $result = $conn->query($sql);
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            echo "<tr>";
+                            echo " <td>" . $row["ped_codigo"] . "</td>";
+                            echo " <td>" . $row["ped_fecha"] . "</td>";
+                            echo " <td>" . $row["loc_nombre"] . "</td>";
+                            echo " <td>" . $row['ped_estado'] . "</td>";
+                            echo "<span class='slider' ></s pan>";
+                            echo "</tb>";
+                            echo "</tr>";
+                        }
+                    } else {
+                        echo "<tr>";
+                        echo " <td colspan='4'> UD NO CUENTA CON PEDIDOS POR GENERAR FACTURAS</td> ";
+                        echo "</tr>";
+                    }
+                    ?>
+                </table border>
+
+
+
+
+
+
+
+
 
             </fieldset>
+
+        </div>
+        <div id='4'>
+
         </div>
     </form>
 
