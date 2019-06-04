@@ -212,7 +212,7 @@ border-block-end: 2%;
     border-radius: 50%;
   }
 
-  #btnCarrito, #btnFactura{
+  #btnCarrito{
     position: relative;
      margin-top: 20px; 
      margin-left: 25%; 

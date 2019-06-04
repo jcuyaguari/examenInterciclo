@@ -71,7 +71,54 @@
 
         </div>
         <div id="dos">
-            <h1>PEDIDOS</h1>
+            <fieldset style="text-align: center">
+                <legend>PEDIDOS POR FACTURAR</legend>
+                <table border>
+                    <tr>
+                        <th >CODIGO</th>
+                        <th>FECHA DE GENERACION</th>
+                        <th>LOCAL</th>
+                        <th>ESTADO</th>
+                        <th>VER DETALLE</th>
+                        <th >GENERAR FACTURA</th>
+                    </tr>
+                    <?php
+
+                    $sql = "SELECT  * 
+                    FROM pedido p, local l 
+                    WHERE p.ped_cod_local = l.loc_id AND p.ped_cod_user= $codigo AND p.usu_eliminado = 0 AND p.ped_estado = 'CREADO';";
+                    $result = $conn->query($sql);
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            echo "<tr>";
+                            echo " <td>" . $row["ped_codigo"] . "</td>";
+                            echo " <td>" . $row["ped_fecha"] . "</td>";
+                            echo " <td>" . $row["loc_nombre"] . "</td>";
+                            echo " <td>" . $row['ped_estado'] . "</td>";
+                            echo " <td><input type='button' id='eliminar' name='eliminar' value='VER DETALLE' onclick='detalle(" . $row["ped_codigo"] . ")'/></td>";
+                            echo " <td style='text-align: center'>";
+                            echo "<label class='switch' >";
+                            echo "<input type='checkbox' onclick='facturas(" . $row["ped_codigo"] . ",this)' >";
+                            echo "<span class='slider' ></s pan>";
+                            echo "</tb>";
+                        }
+                    } else {
+                        echo "<tr>";
+                        echo " <td colspan='4'> UD NO CUENTA CON PEDIDOS </td> ";
+                        echo "</tr>";
+                    }
+                    ?>
+                </table border>
+                <input   type="button" name="fac" id='btnFactura' onclick="factura()" value="GENERAR FACTURAS">
+            </fieldset>
+            <fieldset>
+                <legend>DETALLE DE PEDIDO</legend>
+                <div id='detallePedido'>
+
+                </div>
+            </fieldset>
+            
+
         </div>
         <div id="tres">
             <h1>FACTUA</h1>

@@ -49,17 +49,18 @@ UNIQUE KEY `usu_cedula` (`usu_cedula`)
 
 
 
-********CREACION de pedido *************
 CREATE TABLE `pedido` (
 `ped_codigo` int(11) NOT NULL AUTO_INCREMENT,
 `ped_fecha` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
 `ped_cod_user` int(11) NOT NULL,
+`ped_cod_local` int(11) NOT NULL,
 `ped_estado` varchar(50) NOT NULL,
 `usu_eliminado` boolean NOT NULL DEFAULT '0',
 PRIMARY KEY (`ped_codigo`),
-FOREIGN KEY (`ped_cod_user`)   
-REFERENCES `usuario` (`usu_codigo`))
- ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+FOREIGN KEY (`ped_cod_user`) REFERENCES `usuario` (`usu_codigo`),
+FOREIGN KEY (`ped_cod_local`) REFERENCES `local` (`loc_id`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+
 
 
 
@@ -73,4 +74,19 @@ CREATE TABLE IF NOT EXISTS `Det_Ped` (
   PRIMARY KEY (`det_ped_id`),
   FOREIGN KEY (`det_ped_producto`) REFERENCES `productos` (`pro_codigo`),
   FOREIGN KEY (`det_ped_pedido`) REFERENCES `pedido` (`ped_codigo`)
+)ENGINE = InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+
+
+
+*****FACTURA*****
+CREATE TABLE IF NOT EXISTS `Factura` (
+  `fac_id` int(11) NOT NULL AUTO_INCREMENT,
+  `fac_fecha` timestamp NULL DEFAULT NULL,
+  `fac_subtotal` int(11) NOT NULL,
+  `fac_iva` int(5) NOT NULL,
+  `fac_total` int(5) NOT NULL,
+
+  PRIMARY KEY (`fac_id`),
+  FOREIGN KEY (`fac_cliente`) REFERENCES `usuario` (`usu_codigo`),
+  FOREIGN KEY (`fac_pedido`) REFERENCES `Det_Ped` (`det_ped_id`)
 )ENGINE = InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;

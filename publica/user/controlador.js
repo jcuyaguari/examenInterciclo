@@ -362,3 +362,56 @@ function actualizarContrasena() {
         alert('No Rebice los datos')
     }
 }
+
+
+function detalle(cod) {
+
+    if (window.XMLHttpRequest) {
+        xmlhttp = new XMLHttpRequest();
+    } else {
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById('detallePedido').innerHTML= this.responseText;
+        }
+    };
+    xmlhttp.open("POST", "metodosPedidos.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send("opc=listar&codigo=" +cod);
+
+}
+
+
+var lista = new Array();
+
+function facturas(cod, val) {
+    if (val.checked == true) {
+        lista.push(cod);
+    } else {
+        var pos = lista.indexOf(cod)
+        lista.splice(pos, 1);
+        console.log(lista)
+    }
+
+}
+
+function factura() {
+    if (lista.length > 0) {
+        if (window.XMLHttpRequest) {
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById('detallePedido').innerHTML= this.responseText;
+            }
+        };
+        xmlhttp.open("POST", "metodosPedidos.php", true);
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlhttp.send("opc=crear&lista=" +JSON.stringify(lista), true);
+    } else {
+        alert('Debe selecionar uno o mas pedidos ')
+    }
+}
