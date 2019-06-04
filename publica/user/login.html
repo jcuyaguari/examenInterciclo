@@ -31,22 +31,20 @@
         <fieldset>
             <legend>Inicio de Sesion</legend>
 
-            <form id="formulario01" method="POST" action="../controladores/login.php">
-
+            <form id="formulario01" method="POST" action="login.php">
                 <div id='respuesta'></div>
                 <label for="correo">Correo electrónico </label>
                 <input type="text" id="correo" name="correo" value="" placeholder="Ingrese el correo ..." />
                 <br>
                 <br>
-                <label for="nombres">Constraseña</label>
-                <input type="password" id="contrasena" name="contrasena" value=""
+                <label for="contraseña">Constraseña</label>
+                <input type="password" id="contraseña" name="contraseña " value=""
                     placeholder="Ingrese su contraseña ..." />
                 <br><br>
-                <input type="button" id="login" name="login" value="Iniciar Sesión" onclick="iniciar()" />
+                <input type="submit" id="login" name="login" value="Iniciar Sesión" />
                 <input type="button" id="registrarse" name="registrarse" value="Registrarse"
                     onclick="location.href='Registrar.html'">
-                    <input type="button" id="salir" name="salir" value="SALIR"
-                    onclick="location.href='../index.php'">
+
             </form>
         </fieldset>
     </section>

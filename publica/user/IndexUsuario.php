@@ -1,3 +1,10 @@
+
+<?php 
+session_start(); 
+if(!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE || $_SESSION['ROL'] === 'ADMIN'){ 
+    header("Location: /examenInterciclo/publica/user/login.html"); 
+    } 
+?>
 <!DOCTYPE html>
 <html>
 
@@ -11,6 +18,13 @@
     <script type="text/javascript" src="controlador.js"></script>
 
 </head>
+<?php 
+session_start(); 
+if(!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE || $_SESSION['ROL'] === 'ROL'){ 
+    header("Location: /examenInterciclo/publica/user/login.html"); 
+    } 
+?>
+
 
 <body onload="cambiar('uno')">
     <?php
@@ -108,7 +122,7 @@
             <input class="txt" type="button" id="AContrasena" name="AContrasena" value="CAMBIAR CONTRASEÑA" onclick="actualizarContrasena()" />
             <br>
             <input type="reset" id="regresar" name="regresar" value="REGRESAR" onclick="location.href='../menuP/menu.php?codigo=<?php echo $codigo ?>'">
-            <input type="reset" id="salir" name="salir" value="SALIR" onclick="location.href='login.html'">
+            <input type="reset" id="salir" name="salir" value="SALIR" onclick="location.href='../../config/cerar_session.php'">
         </fieldset>
         </div>
         <div id="dos">

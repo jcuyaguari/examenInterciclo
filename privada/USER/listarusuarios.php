@@ -1,3 +1,9 @@
+<?php 
+session_start(); 
+if(!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE || $_SESSION['ROL'] === 'USER'){ 
+    header("Location: /examenInterciclo/publica/user/login.html"); 
+    } 
+?>
 <!DOCTYPE html>
 <html>
 
