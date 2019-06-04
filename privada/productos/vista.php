@@ -12,7 +12,7 @@
 </head>
 
 
-<body onload="cambiar('dos')">
+<body onload="cambiar('cuatro')">
     <?php
     include '../../config/conexionBD.php';
     ?>
@@ -174,13 +174,16 @@
         </div>
         <div id='tres'>
             <label for="precio">INGRESE CODIGO O NOMBRE DEL PRODUCTO</label><br>
-            <input class="txt" type="text" id="buscarP" name="buscarP" value="" onkeyup="buscar(this.value)" placeholder="Ingrese el codigo o nombre" />
+            <input class="txt" type="text" id="buscarP" name="buscarP" value="" 
+            onkeyup="buscar(this.value)" placeholder="Ingrese el codigo o nombre" />
             <div id="busqueda">
             </div>
         </div>
+        
         <div id='cuatro'>
             <label for="precio">INGRESE CODIGO O NOMBRE DEL PRODUCTO</label><br>
-            <input class="txt" type="text" id="actualizarP" name="actualizarP" value="" onkeyup="buscarAct(this.value)" placeholder="Ingrese el codigo o nombre" />
+            <input class="txt" type="text" id="actualizarP" name="actualizarP" value="" 
+            onkeyup="buscarAct(this.value)" placeholder="Ingrese el codigo o nombre" />
             <br>
             <br>
             <div id="actualizacion">
