@@ -39,7 +39,7 @@
                 <br>
                 <input type="text" id="telefono" name="telefono" value="" placeholder="TELEFONO" />
                 <br>
-                <label for="descripcion">Ingresar la direccion</label>
+                <label for="descripcion">Ingresar la descripcion</label>
                 <br>
                 <input type="text" id="descripcion" name="descripcion" value="" placeholder="DESCRIPCION" />
                 <br><br>
