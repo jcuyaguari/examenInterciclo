@@ -20,6 +20,7 @@ $Codigo = trim($_GET['codigo']);
 
     <header>
         <h1 class='elegantshadow'>Floristeria "La Casa de las Flores"</h1>
+        </header>
         <nav>
             <ul>
                 <li>
@@ -85,7 +86,7 @@ $Codigo = trim($_GET['codigo']);
 
                 <li>
                     <a href="../user/IndexUsuario.php?codigo=<?php echo "$Codigo"; ?>">
-                        <div class="name" data-text="Home">ADMINISTRAR MI CUENTA</div>
+                        <div class="name" data-text="Home">Administrar mi cuenta</div>
                         <div class="icon">
                             <i class="fa fa-user-o" aria-hidden="true"></i>
                             <i class="fa fa-user-o" aria-hidden="true"></i>
@@ -97,7 +98,7 @@ $Codigo = trim($_GET['codigo']);
             </ul>
         </nav>
 
-    </header>
+    
 
     <div class="contenedor" style="border: solid 2px red" id='uno'>
         <section>
@@ -157,7 +158,7 @@ $Codigo = trim($_GET['codigo']);
         <form id='formCarrito' method="POST">
             <div style="width: 100%; text-align: center">
                 <select class="txt" id='local' name='local' required>
-                    <option value="0">Selecione Local</option>
+                    <option value="0" style="padding-top:7px;text-align:center;width:30px;height:30px;">Seleccione Local </option>
                     <?php
                     $sql = "SELECT * FROM local WHERE loc_eliminado = 0";
                     $result = $conn->query($sql);
@@ -193,7 +194,7 @@ $Codigo = trim($_GET['codigo']);
                 <?php
             }
             ?>
-                <input type="button" name="button" id='btnCarrito' onclick="carrito()" value="COMPRAR PRODUCTOS">
+                <input type="button" name="button" id='btnCarrito' onclick="carrito()" value="COMPRAR PRODUCTOS" style="height:54%;width:54%;border-radius: 54px;border: 4px solid #48304D; background-color: #F7949C">
             <?php
         } else {
             echo "<tr>";
