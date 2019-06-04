@@ -161,7 +161,7 @@
     case 'buscarPed':
         $fechaA  = $_GET['fechaA'];
         $fechaN  = $_GET['fechaN'];
-        $sql = "SELECT * FROM pedido where ped_fecha>='2019-06-04' and ped_fecha<'2019-06-04'";
+        $sql = "SELECT * FROM pedido where ped_fecha>='2019-06-04 03:14:34' and ped_fecha<'2019-06-04 03:34:46'";
 
 
 
