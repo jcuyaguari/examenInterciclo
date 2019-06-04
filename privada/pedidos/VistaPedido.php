@@ -179,7 +179,7 @@ if(!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE || $_SESSION
                 <input type="text" id="fechaA" name="fechaA" value="" placeholder="AAAA-MM-DD" /><br>
                 <label for="fechaA">INGRESAR FECHA MAS RECIENTE </label><br>
                 <input type="text" id="fechaN" name="fechaN" value="" placeholder="AAAA-MM-DD" />
-                <input type='button' id='bus' name='bus' value='BUSCAR' onclick='buscar(fechaA)'/>
+                <input type='button' id='bus' name='bus' value='BUSCAR' onclick='buscar(fechaA.value+fechaN.value)'/>
 
 
 
