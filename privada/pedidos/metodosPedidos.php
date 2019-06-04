@@ -145,18 +145,44 @@
         <?php
         break;
 
-        case 'enviar':
+    case 'enviar':
         $cod =  $_POST['codigo'];
         $sql3 = "UPDATE pedido set ped_estado = 'EN CAMINO' WHERE ped_codigo = '$cod'";
         $result = $conn->query($sql3);
         echo '**T**';
         break;
-        case 'entregar':
+    case 'entregar':
         echo ('hola');
         $cod =  $_POST['codigo'];
         $sql = "UPDATE pedido set ped_estado = 'ENTREGADO' WHERE ped_codigo = '$cod'";
         $result = $conn->query($sql);
         echo '**T**';
+        break;
+    case 'buscarPed':
+        $fechaA  = $_GET['fechaA'];
+        $fechaN  = $_GET['fechaN'];
+        $sql = "SELECT * FROM pedido where ped_fecha>='2019-06-04' and ped_fecha<'2019-06-04'";
+
+
+
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                echo "<tr>";
+                echo " <td>" . $row["ped_codigo"] . "</td>";
+                echo " <td>" . $row["ped_fecha"] . "</td>";
+                echo " <td>" . $row["loc_nombre"] . "</td>";
+                echo " <td>" . $row['ped_estado'] . "</td>";
+            }
+        } else {
+
+            echo "<tr>";
+            echo " <td colspan='7'> No existen locales </td> ";
+            echo "</tr>";
+        }
+
+
         break;
 }
 

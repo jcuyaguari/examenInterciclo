@@ -107,7 +107,26 @@ function entregaPed(cod){
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.send("opc=entregar&codigo=" + cod);
 }
-function buscar(fechaA,fechan) {
-    echo(fechaA);
-    
+function buscar(fechaA,fechaN) {
+    alert(fechaA+fechaN);
+    if (fechaA != "" && fechaN != "") {
+        if (window.XMLHttpRequest) {
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                var res = this.responseText;
+                alert(res);
+                document.location.reload();
+            }
+        };
+
+        xmlhttp.open("GET", "metodosPedidos.php?opc=buscarPed&fechaA=" + fechaA+"&fechaB="+fechaN, true);
+        xmlhttp.send();
+
+    } else {
+        alert('No Rebice los datos')
+    }
 }

@@ -1,8 +1,8 @@
-<?php 
-session_start(); 
-if(!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE || $_SESSION['ROL'] === 'USER'){ 
-    header("Location: /examenInterciclo/publica/user/login.html"); 
-    } 
+<?php
+session_start();
+if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE || $_SESSION['ROL'] === 'USER') {
+    header("Location: /examenInterciclo/publica/user/login.html");
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -24,11 +24,6 @@ if(!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE || $_SESSION
 
         <h1 class='elegantshadow'>Pedido</h1>
     </header>
-
-    <!-- <input type="button" onclick="cambiar('1')" value="Listar Pedidos Pendientes" style="background-color: red;">
-    <input type="button" onclick="cambiar('2')" value="Listar Pedidos Entregados" style="background-color: khaki;">
-    <input type="button" onclick="cambiar('3')" value="Buscar Pedido" style="background-color: lightsalmon;">
-    <input type="button" onclick="cambiar('4')" value="Editar Entrega" style="background-color: mediumpurple;"> -->
 
     <!-- desde aquirrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr/ -->
     <ul>
@@ -178,51 +173,8 @@ if(!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE || $_SESSION
                 <label for="fechaA">INGRESAR FECHA MAS ANTIGUA </label><br>
                 <input type="text" id="fechaA" name="fechaA" value="" placeholder="AAAA-MM-DD" /><br>
                 <label for="fechaA">INGRESAR FECHA MAS RECIENTE </label><br>
-                <input type="text" id="fechaN" name="fechaN" value="" placeholder="AAAA-MM-DD" />
-                <input type='button' id='bus' name='bus' value='BUSCAR' onclick='buscar(fechaA.value+fechaN.value)'/>
-
-
-
-
-                <table border>
-                    <tr>
-                        <th>CODIGO</th>
-                        <th>FECHA DE GENERACION</th>
-                        <th>LOCAL</th>
-                        <th>ESTADO</th>
-                    </tr>
-                    <?php
-                    $fechaA="fechaA.value";
-                    echo("$fechaA");
-                    $sql = "SELECT  * 
-                    FROM pedido p, local l where usu_eliminado=0 and ped_estado='EN CAMINO' or ped_estado='ENTREGADO' ";
-                    $result = $conn->query($sql);
-                    if ($result->num_rows > 0) {
-                        while ($row = $result->fetch_assoc()) {
-                            echo "<tr>";
-                            echo " <td>" . $row["ped_codigo"] . "</td>";
-                            echo " <td>" . $row["ped_fecha"] . "</td>";
-                            echo " <td>" . $row["loc_nombre"] . "</td>";
-                            echo " <td>" . $row['ped_estado'] . "</td>";
-                            echo "<span class='slider' ></s pan>";
-                            echo "</tb>";
-                            echo "</tr>";
-                        }
-                    } else {
-                        echo "<tr>";
-                        echo " <td colspan='4'> UD NO CUENTA CON PEDIDOS POR GENERAR FACTURAS</td> ";
-                        echo "</tr>";
-                    }
-                    ?>
-                </table border>
-
-
-
-
-
-
-
-
+                <input type="text" id="fechaN" name="fechaN" value="" placeholder="AAAA-MM-DD" /><br>
+                <input type='button' id='bus' name='bus' value='BUSCAR' onclick="buscar(fechaA.value,fechaN.value)" />
 
             </fieldset>
 
