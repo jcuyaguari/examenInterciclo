@@ -14,7 +14,7 @@
 
         <div class="nav">
             <a class="a" href="../productos/vista.php">Administrar Productos</a>
-            <a class="b " href="../Usuarios/controlador/index.php">Administrar Usuarios</a>
+            <a class="b " href="../USER/listarusuarios.php">Administrar Usuarios</a>
             <a class="c " href="#">Administrar Admin</a>
             <a class="d" href="../Locales/VistaLocal.php">Administrar Locales</a>
             <a class="e " href="#">Administrar Facturas</a>
