@@ -75,12 +75,13 @@
                 <legend>PEDIDOS POR FACTURAR</legend>
                 <table border>
                     <tr>
-                        <th >CODIGO</th>
+                        <th>CODIGO</th>
                         <th>FECHA DE GENERACION</th>
                         <th>LOCAL</th>
                         <th>ESTADO</th>
                         <th>VER DETALLE</th>
-                        <th >GENERAR FACTURA</th>
+                        <th>ELIMINAR</th>
+                        <th>GENERAR FACTURA</th>
                     </tr>
                     <?php
 
@@ -95,21 +96,23 @@
                             echo " <td>" . $row["ped_fecha"] . "</td>";
                             echo " <td>" . $row["loc_nombre"] . "</td>";
                             echo " <td>" . $row['ped_estado'] . "</td>";
-                            echo " <td><input type='button' id='eliminar' name='eliminar' value='VER DETALLE' onclick='detalle(" . $row["ped_codigo"] . ")'/></td>";
+                            echo " <td><input type='button' id='det' name='det' value='VER DETALLE' onclick='detalle(" . $row["ped_codigo"] . ")'/></td>";
+                            echo " <td><input type='button' id='ele' name='ele' value='ELMINIAR' onclick='eliminarPed(" . $row["ped_codigo"] . ")'/></td>";
                             echo " <td style='text-align: center'>";
                             echo "<label class='switch' >";
                             echo "<input type='checkbox' onclick='facturas(" . $row["ped_codigo"] . ",this)' >";
                             echo "<span class='slider' ></s pan>";
                             echo "</tb>";
+                            echo "</tr>";
                         }
                     } else {
                         echo "<tr>";
-                        echo " <td colspan='4'> UD NO CUENTA CON PEDIDOS </td> ";
+                        echo " <td colspan='4'> UD NO CUENTA CON PEDIDOS POR GENERAR FACTURAS</td> ";
                         echo "</tr>";
                     }
                     ?>
                 </table border>
-                <input   type="button" name="fac" id='btnFactura' onclick="factura()" value="GENERAR FACTURAS">
+                <input type="button" name="fac" id='btnFactura' onclick="factura(<?php echo $codigo ?>)" value="GENERAR FACTURAS">
             </fieldset>
             <fieldset>
                 <legend>DETALLE DE PEDIDO</legend>
@@ -117,11 +120,87 @@
 
                 </div>
             </fieldset>
-            
 
+
+
+            <fieldset style="text-align: center">
+                <legend>OTROS PEDIDOS</legend>
+                <table border>
+                    <tr>
+                        <th>CODIGO</th>
+                        <th>FECHA DE GENERACION</th>
+                        <th>LOCAL</th>
+                        <th>ESTADO</th>
+                        <th>VER DETALLE</th>
+                        <th>ELIMINAR</th>
+                    </tr>
+                    <?php
+
+                    $sql = "SELECT  * 
+                    FROM pedido p, local l 
+                    WHERE p.ped_cod_local = l.loc_id AND p.ped_cod_user= $codigo AND p.usu_eliminado = 0 AND p.ped_estado <> 'CREADO';";
+                    $result = $conn->query($sql);
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            echo "<tr>";
+                            echo " <td>" . $row["ped_codigo"] . "</td>";
+                            echo " <td>" . $row["ped_fecha"] . "</td>";
+                            echo " <td>" . $row["loc_nombre"] . "</td>";
+                            echo " <td>" . $row['ped_estado'] . "</td>";
+                            echo " <td><input type='button' id='det' name='det' value='VER DETALLE' onclick='detalle(" . $row["ped_codigo"] . ")'/></td>";
+                            echo " <td><input type='button' id='ele' name='ele' value='ELMINIAR' onclick='eliminarPed(" . $row["ped_codigo"] . ")'/></td>";
+                            echo "</tr>";
+                        }
+                    } else {
+                        echo "<tr>";
+                        echo " <td colspan='6'> NO TIENE PEDIDOS DIFERENTES DE CREADO </td> ";
+                        echo "</tr>";
+                    }
+                    ?>
+                </table border>
+            </fieldset>
         </div>
         <div id="tres">
-            <h1>FACTUA</h1>
+            <fieldset style="text-align: center">
+                <legend>MIS FACTURAS</legend>
+                <table border>
+                    <tr>
+                        <th>CODIGO</th>
+                        <th>FECHA DE GENERACION</th>
+                        <th>ESTADO</th>
+                        <th>SUB TOTAL</th>
+                        <th>IVA</th>
+                        <th>TOTAL</th>
+                        <th>DETALLE</th>
+                    </tr>
+                    <?php
+
+                    $sql = "SELECT * FROM factura f WHERE f.fac_cliente = $codigo";
+                    $result = $conn->query($sql);
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            echo "<tr>";
+                            echo " <td>" . $row["fac_id"] . "</td>";
+                            echo " <td>" . $row["fac_fecha"] . "</td>";
+                            echo " <td>" . $row["fac_estado"] . "</td>";
+                            echo " <td>" . $row['fac_subtotal'] . "</td>";
+                            echo " <td>" . $row['fac_iva'] . "</td>";
+                            echo " <td>" . $row['fac_total'] . "</td>";
+                            echo " <td><input type='button' id='det' name='det' value='VER DETALLE' onclick='detalleFAC(" . $row["fac_id"] . ")'/></td>";
+                            echo "</tr>";
+                        }
+                    } else {
+                        echo "<tr>";
+                        echo " <td colspan='6'> NO TIENE PEDIDOS DIFERENTES DE CREADO </td> ";
+                        echo "</tr>";
+                    }
+                    ?>
+                </table border>
+                <legend>DETALLE DE FACTURA</legend>
+                <div id='detFac'>
+
+                </div>
+            </fieldset>
         </div>
         <?php
         $conn->close();

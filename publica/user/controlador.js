@@ -365,7 +365,6 @@ function actualizarContrasena() {
 
 
 function detalle(cod) {
-
     if (window.XMLHttpRequest) {
         xmlhttp = new XMLHttpRequest();
     } else {
@@ -373,12 +372,12 @@ function detalle(cod) {
     }
     xmlhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            document.getElementById('detallePedido').innerHTML= this.responseText;
+            document.getElementById('detallePedido').innerHTML = this.responseText;
         }
     };
     xmlhttp.open("POST", "metodosPedidos.php", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.send("opc=listar&codigo=" +cod);
+    xmlhttp.send("opc=listar&codigo=" + cod);
 
 }
 
@@ -396,7 +395,7 @@ function facturas(cod, val) {
 
 }
 
-function factura() {
+function factura(cod) {
     if (lista.length > 0) {
         if (window.XMLHttpRequest) {
             xmlhttp = new XMLHttpRequest();
@@ -405,13 +404,57 @@ function factura() {
         }
         xmlhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                document.getElementById('detallePedido').innerHTML= this.responseText;
+                var resp = innerHTML = this.responseText;
+                res = resp.indexOf('**T**');
+                if (res != -1) {
+                    alert("FACTURA GENERADA")
+                    document.location.reload();
+                } else {
+                    alert('error: ' + res)
+                }
+
             }
-        };
+
+        }
         xmlhttp.open("POST", "metodosPedidos.php", true);
         xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xmlhttp.send("opc=crear&lista=" +JSON.stringify(lista), true);
+        xmlhttp.send("opc=crear&cod=" + cod + "&lista=" + JSON.stringify(lista), true);
     } else {
         alert('Debe selecionar uno o mas pedidos ')
     }
+}
+
+function eliminarPed(cod) {
+    if (window.XMLHttpRequest) {
+        xmlhttp = new XMLHttpRequest();
+    } else {
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            alert('PEDIDO ELIMINADO');
+            document.location.reload();
+            
+        }
+    };
+    xmlhttp.open("POST", "metodosPedidos.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send("opc=eliminar&codigo=" + cod);
+}
+
+function detalleFAC(cod) {
+    if (window.XMLHttpRequest) {
+        xmlhttp = new XMLHttpRequest();
+    } else {
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById('detFac').innerHTML = this.responseText;
+        }
+    };
+    xmlhttp.open("POST", "metodosPedidos.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send("opc=listarFAC&codigo=" + cod);
+
 }

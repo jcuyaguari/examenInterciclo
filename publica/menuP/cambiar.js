@@ -163,7 +163,7 @@ function carrito() {
             console.log(resp)
             res = resp.indexOf('**T**');
             if (res != -1) {
-                alert("PRODUCTO CREADO")
+                alert("PEDIDO  REALIZADO")
                 document.location.reload();
             } else {
                 res = resp.indexOf('**N**');

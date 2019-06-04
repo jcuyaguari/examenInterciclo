@@ -79,14 +79,27 @@ CREATE TABLE IF NOT EXISTS `Det_Ped` (
 
 
 *****FACTURA*****
-CREATE TABLE IF NOT EXISTS `Factura` (
+CREATE TABLE IF NOT EXISTS `factura` (
   `fac_id` int(11) NOT NULL AUTO_INCREMENT,
   `fac_fecha` timestamp NULL DEFAULT NULL,
-  `fac_subtotal` int(11) NOT NULL,
-  `fac_iva` int(5) NOT NULL,
-  `fac_total` int(5) NOT NULL,
-
+   `fac_cliente` int(11) NOT NULL,
+   `fac_estado` varchar(50) NOT NULL,
+  `fac_subtotal` double(8,2) NOT NULL,
+  `fac_iva` double(8,2) NOT NULL,
+  `fac_total` double(8,2) NOT NULL,
   PRIMARY KEY (`fac_id`),
-  FOREIGN KEY (`fac_cliente`) REFERENCES `usuario` (`usu_codigo`),
-  FOREIGN KEY (`fac_pedido`) REFERENCES `Det_Ped` (`det_ped_id`)
+  FOREIGN KEY (`fac_cliente`) REFERENCES `usuario` (`usu_codigo`)
 )ENGINE = InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+
+
+***************FACTRUA detalle*************
+CREATE TABLE IF NOT EXISTS `fac_detalle` (
+  `facd_id` int(11) NOT NULL AUTO_INCREMENT,
+  `facd_pedido` int(11) NOT NULL,
+  `facd_factura` int(11) NOT NULL,
+  PRIMARY KEY (`facd_id`),
+  FOREIGN KEY (`facd_pedido`) REFERENCES `pedido` (`ped_codigo`),
+  FOREIGN KEY (`facd_factura`) REFERENCES `factura` (`fac_id`)
+)ENGINE = InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+
+
