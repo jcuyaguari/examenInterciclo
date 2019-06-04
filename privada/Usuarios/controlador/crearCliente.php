@@ -202,6 +202,20 @@
         echo "<b>NO SE ENCOTRO EL Usuario</b>";
     }
     break;
+    case 'iniciar':
+            $correo = ($_POST["correo"]);
+            $contrasena = $_POST["contrasena"];
+            $sql = "SELECT * FROM cliente where cli_correo='$correo' AND cli_password= MD5('$contrasena')";
+            $result = $conn->query($sql);
+            $row = $result->fetch_assoc();
+            if ($result->num_rows > 0) {
+                echo '**T**';
+                echo "<input hidden id='codigo' value='" . $row['usu_codigo'] . "'></input>";
+            } else {
+                echo '**FALSE**';
+                echo "$conn->erro";
+            }
+            break;
 }
 $conn->close();
 ?>

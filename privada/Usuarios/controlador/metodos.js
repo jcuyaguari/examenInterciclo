@@ -182,5 +182,41 @@ function buscarAct(txt) {
 
 }
 
+function iniciar() {
+    
+    $correo = document.getElementById('correo').value;
+    $contrasena = document.getElementById('contrasena').value;
+    if (correo != "" && contrasena != "") {
+        if (window.XMLHttpRequest) {
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                resp = this.responseText;
+                console.log(resp)
+                res = resp.indexOf('**T**');
 
+                if (res != -1) {
+                    document.getElementById('respuesta').innerHTML = this.responseText;
+                    var $codigo = document.getElementById('codigo').value;
+
+                    location.href = '../Usuarios/controlador/CRUD_CLIENTE.php?codigo=' + $codigo;
+                } else {
+                    alert("USUARIO NO ENCONTRADO");
+                    document.location.reload();
+
+                }
+
+            }
+        };
+        
+        xmlhttp.open("POST", "../Usuarios/controlador/crearCliente.php", true);
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlhttp.send("opc=iniciar&correo=" + $correo + "&contrasena=" + $contrasena);
+    } else {
+        alert('datos vacios')
+    }
+}
 
