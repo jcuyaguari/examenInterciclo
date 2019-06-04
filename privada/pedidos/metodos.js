@@ -107,3 +107,7 @@ function entregaPed(cod){
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.send("opc=entregar&codigo=" + cod);
 }
+function buscar(fechaA) {
+    echo(fechaA);
+    
+}

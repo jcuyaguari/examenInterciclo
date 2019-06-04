@@ -139,7 +139,6 @@
                         <th>ENTREGA COMPLATADA</th>
                     </tr>
                     <?php
-
                     $sql = "SELECT  * 
                     FROM pedido p, local l where usu_eliminado=0 and ped_estado='EN CAMINO' or ped_estado='ENTREGADO' ";
                     $result = $conn->query($sql);
@@ -167,6 +166,59 @@
 
         </div>
         <div id='3'>
+            <br><br><br><br><br><br><br><br>
+            <fieldset style="text-align: center">
+                <legend>BUSCAR PEDIDOS POR FECHA</legend>
+                <label for="fechaA">INGRESAR FECHA MAS ANTIGUA </label><br>
+                <input type="text" id="fechaA" name="fechaA" value="" placeholder="AAAA-MM-DD" /><br>
+                <label for="fechaA">INGRESAR FECHA MAS RECIENTE </label><br>
+                <input type="text" id="fechaN" name="fechaN" value="" placeholder="AAAA-MM-DD" />
+                <input type='button' id='bus' name='bus' value='BUSCAR' onclick='buscar(fechaA)'/>
+
+
+
+
+                <table border>
+                    <tr>
+                        <th>CODIGO</th>
+                        <th>FECHA DE GENERACION</th>
+                        <th>LOCAL</th>
+                        <th>ESTADO</th>
+                    </tr>
+                    <?php
+                    $fechaA="fechaA.value";
+                    echo("$fechaA");
+                    $sql = "SELECT  * 
+                    FROM pedido p, local l where usu_eliminado=0 and ped_estado='EN CAMINO' or ped_estado='ENTREGADO' ";
+                    $result = $conn->query($sql);
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            echo "<tr>";
+                            echo " <td>" . $row["ped_codigo"] . "</td>";
+                            echo " <td>" . $row["ped_fecha"] . "</td>";
+                            echo " <td>" . $row["loc_nombre"] . "</td>";
+                            echo " <td>" . $row['ped_estado'] . "</td>";
+                            echo "<span class='slider' ></s pan>";
+                            echo "</tb>";
+                            echo "</tr>";
+                        }
+                    } else {
+                        echo "<tr>";
+                        echo " <td colspan='4'> UD NO CUENTA CON PEDIDOS POR GENERAR FACTURAS</td> ";
+                        echo "</tr>";
+                    }
+                    ?>
+                </table border>
+
+
+
+
+
+
+
+
+
+            </fieldset>
 
         </div>
         <div id='4'>
