@@ -73,6 +73,8 @@
         <input id='opc' name='opc' hidden>
        
         <div id='uno'>
+            <br>
+            <br>
         <table border>
         <tr>
                     <td><label for="cedula">Cedula (*)</label></td>
