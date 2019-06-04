@@ -123,7 +123,7 @@ function cantidad(num, val, cod) {
     if (val.checked == true) {
         var bandera = true;
         while (bandera) {
-            var retVal = prompt("Ingrese Canidad: ");
+            var retVal = prompt("Ingrese Cantidad: ");
             if (isNaN(retVal) == false) {
                 if (retVal <= num) {
                     listaCantidad.push(retVal);

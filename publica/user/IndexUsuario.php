@@ -19,16 +19,57 @@
     $sql = "SELECT * FROM usuario where usu_codigo=$codigo";
     $row = $conn->query($sql)->fetch_assoc();
     ?>
+    <header>
+
     <h1 class='elegantshadow'>Floristeria "La Casa de las Flores"</h1>
-    <input type="button" onclick="cambiar('uno')" value="OPCIONES DE CUENTA">
-
+    </header>
+    
+    <!-- <input type="button" onclick="cambiar('uno')" value="OPCIONES DE CUENTA">
     <input type="button" onclick="cambiar('dos')" value="MIS PEDIDOS">
+    <input type="button" onclick="cambiar('tres')" value="MIS FACTURAS"> -->
 
-    <input type="button" onclick="cambiar('tres')" value="MIS FACTURAS">
+    <ul>
+        <li>
+            <a href=" #" onclick="cambiar('uno')">
+                <div class="name" data-text="Home">OPCIONES DE CUENTA</div>
+                <div class="icon">
+                    <i class="fa fa-plus-square" aria-hidden="true"></i>
+                    <i class="fa fa-plus-square" aria-hidden="true"></i>
+                </div>
 
+            </a>
+        </li>
+        <li>
+            <a href=" #" onclick="cambiar('dos')">
+                <div class="name" data-text="Home">MIS PEDIDOS</div>
+                <div class="icon">
+                    <i class="fa fa-plus-square" aria-hidden="true"></i>
+                    <i class="fa fa-plus-square" aria-hidden="true"></i>
+                </div>
 
+            </a>
+        </li>
+        <li>
+            <a href=" #" onclick="cambiar('tres')">
+                <div class="name" data-text="Home">MIS FACTURAS</div>
+                <div class="icon">
+                    <i class="fa fa-plus-square" aria-hidden="true"></i>
+                    <i class="fa fa-plus-square" aria-hidden="true"></i>
+                </div>
+
+            </a>
+        </li>
+
+    </ul>
+    <br>
+    <br>
+    <br>
     <form id="form" method="POST">
-        <div id='uno'>
+            <div id='uno'>
+                <br>
+                <br>
+            <fieldset>
+            <legend>OPCIONES DE CUENTA</legend>
             <input type="hidden" id="codigo" name="codigo" value="<?php echo $codigo ?>" />
             <label for="cedula">Cedula (*)</label>
             <br>
@@ -68,9 +109,11 @@
             <br>
             <input type="reset" id="regresar" name="regresar" value="REGRESAR" onclick="location.href='../menuP/menu.php?codigo=<?php echo $codigo ?>'">
             <input type="reset" id="salir" name="salir" value="SALIR" onclick="location.href='login.html'">
-
+        </fieldset>
         </div>
         <div id="dos">
+            <br>
+            <br>
             <fieldset style="text-align: center">
                 <legend>PEDIDOS POR FACTURAR</legend>
                 <table border>
@@ -161,6 +204,8 @@
             </fieldset>
         </div>
         <div id="tres">
+            <br>
+            <br>
             <fieldset style="text-align: center">
                 <legend>MIS FACTURAS</legend>
                 <table border>
