@@ -21,8 +21,14 @@
 </head>
 
 <body background="css/correo2.jpg">
-    <legend>ADMINISTRADOR</legend>
-    <a href='../../../config/cerrar_sesion.php'>Cerrar Sesión </a>
+    <h1>ADMINISTRADOR</h1>
+    <legend>BUSCAR USUARIO</legend>
+    <br>
+    <label for="descripcion">Ingresar la cedula</label>
+    <br>
+    <input type="text" id="descripcion" name="descripcion" value="" placeholder="Cedula Cliente" />
+    <br>
+    <input class="txt" type="button" id="buscar" name="buscar" value="ACEPTAR" onclick="buscarUsuario(descripcion.value)" />
     <table style="border-style: solid">
         <legend>USUARIOS REGISTRADOS</legend>
         <tr>
@@ -35,7 +41,7 @@
             <th>Fecha Nacimiento</th>
             <th>Tipo de usuario</th>
             <th>Estado</th>
-            <th colspan="3">OPCIONES</th>
+            <th colspan="2">OPCIONES</th>
         </tr>
         <?php
         include '../../config/conexionBD.php';
@@ -60,7 +66,6 @@
                     echo " <td> " . 'Activo' . "</td> ";
                     echo "<td><input type='button' id='eliminar' name='eliminar' value='ELIMINAR' onclick='eliminar(" . $row["usu_codigo"] . ")' /></td>";
                 }
-                echo "<td><input type='button' id='eliminar' name='eliminar' value='MODIFICAR' onclick='actualizarContrasena(" . $row["usu_codigo"] . ")' /></td>";
                 echo "<td><input type='button' id='cambiar' name='cambiar' value='CAMBIAR CONTRASEÑA' onclick='actualizarContrasena(" . $row["usu_codigo"] . ")' /></td>";;
 
                 echo "</tr>";

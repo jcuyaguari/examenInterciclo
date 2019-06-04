@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-
-</head>
-
 <body>
     <?php
     include '../../config/conexionBD.php';
@@ -47,7 +43,29 @@
                 echo "<p class='error'>Error: " . mysqli_error($conn) . "</p>";
             }
             break;
-        case 'modificar':
+        case 'buscarUsu':
+            $cedula  = $_GET['cedula'];
+            $sql = "SELECT * FROM usuario where usu_cedula='$cedula'";
+
+
+
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+
+                while ($row = $result->fetch_assoc()) {
+                    echo " NOMBRE:" . $row['usu_nombres'];
+                    echo " APELLIDO:" . $row['usu_apellidos'];
+                    echo " DIRECCION:" . $row['usu_direccion'];
+                    echo " TELEFONO:" . $row["usu_telefono"];
+                }
+            } else {
+
+                echo "<tr>";
+                echo " <td colspan='7'> No existen locales </td> ";
+                echo "</tr>";
+            }
+
 
             break;
     }

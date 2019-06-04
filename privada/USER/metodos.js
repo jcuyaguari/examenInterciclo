@@ -65,3 +65,25 @@ function actualizarContrasena(cod) {
         alert('No Rebice los datos')
     }
 }
+function buscarUsuario(cedula) {
+    if (cedula != "") {
+        if (window.XMLHttpRequest) {
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                var res = this.responseText;
+                alert(res);
+                document.location.reload();
+            }
+        };
+
+        xmlhttp.open("GET", "baseUser.php?opc=buscarUsu&cedula=" + cedula, true);
+        xmlhttp.send();
+
+    } else {
+        alert('No Rebice los datos')
+    }
+}
