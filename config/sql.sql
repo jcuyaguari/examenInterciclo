@@ -90,3 +90,20 @@ CREATE TABLE IF NOT EXISTS `Factura` (
   FOREIGN KEY (`fac_cliente`) REFERENCES `usuario` (`usu_codigo`),
   FOREIGN KEY (`fac_pedido`) REFERENCES `Det_Ped` (`det_ped_id`)
 )ENGINE = InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+
+
+
+********UsuarioAdmin*************
+CREATE TABLE `examen`.`cliente` (
+  `cli_id` int(11) NOT NULL,
+  `cli_cedula` varchar(10) NOT NULL,
+  `cli_nombre` varchar(50) NOT NULL,
+  `cli_apellido` varchar(50) NOT NULL,
+  `cli_direccion` varchar(75) NOT NULL,
+  `cli_telefono` varchar(20) NOT NULL,
+  `cli_correo` varchar(20) NOT NULL,
+  `cli_password` varchar(255) NOT NULL,
+  `cli_fecha_nacimiento` date NOT NULL,
+  `cli_eliminado` varchar(1) NOT NULL DEFAULT 'N',
+  `cli_rol` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
