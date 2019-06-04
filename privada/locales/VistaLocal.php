@@ -1,8 +1,8 @@
-<?php 
-session_start(); 
-if(!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE || $_SESSION['ROL'] === 'USER'){ 
-    header("Location: /examenInterciclo/publica/user/login.html"); 
-    } 
+<?php
+session_start();
+if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE || $_SESSION['ROL'] === 'USER') {
+    header("Location: /examenInterciclo/publica/user/login.html");
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -23,7 +23,7 @@ if(!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE || $_SESSION
     include '../../config/conexionBD.php';
     ?>
     <header>
-
+        <a href="../admin/indexAdministrrador.php"><input type="button" id="cancelar" name="cancelar" value="REGRESAR A INICIO"></a>
         <h1 class='elegantshadow'>Locales</h1>
     </header>
     <!-- <input type="button" onclick="cambiar('1')" value="A&Ntilde;ADIR NUEVO LOCAL">
@@ -38,9 +38,9 @@ if(!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE || $_SESSION
             <a href=" #" onclick="cambiar('1')">
                 <div class="name" data-text="Home">A&Ntilde;ADIR NUEVO LOCAL</div>
                 <div class="icon">
-                <i class="fa fa-plus-circle" aria-hidden="true"></i>
-                <i class="fa fa-plus-circle" aria-hidden="true"></i>
-                   
+                    <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                    <i class="fa fa-plus-circle" aria-hidden="true"></i>
+
                 </div>
 
             </a>
@@ -51,8 +51,8 @@ if(!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE || $_SESSION
             <a href=" #" onclick="cambiar('2')">
                 <div class="name" data-text="Home">EDITAR LOCAL</div>
                 <div class="icon">
-                <i class="fa fa-pencil-square" aria-hidden="true"></i>
-                <i class="fa fa-pencil-square" aria-hidden="true"></i>
+                    <i class="fa fa-pencil-square" aria-hidden="true"></i>
+                    <i class="fa fa-pencil-square" aria-hidden="true"></i>
 
                 </div>
 
@@ -64,8 +64,8 @@ if(!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE || $_SESSION
             <a href=" #" onclick="cambiar('3')">
                 <div class="name" data-text="Home">ELIMINAR LOCAL</div>
                 <div class="icon">
-                <i class="fa fa-trash" aria-hidden="true"></i>
-                <i class="fa fa-trash" aria-hidden="true"></i>
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                    <i class="fa fa-trash" aria-hidden="true"></i>
 
                 </div>
 

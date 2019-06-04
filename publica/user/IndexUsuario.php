@@ -18,12 +18,6 @@ if(!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE || $_SESSION
     <script type="text/javascript" src="controlador.js"></script>
 
 </head>
-<?php 
-session_start(); 
-if(!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE || $_SESSION['ROL'] === 'ROL'){ 
-    header("Location: /examenInterciclo/publica/user/login.html"); 
-    } 
-?>
 
 
 <body onload="cambiar('uno')">
@@ -34,7 +28,8 @@ if(!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE || $_SESSION
     $row = $conn->query($sql)->fetch_assoc();
     ?>
     <header>
-
+    <a href='../menuP/menu.php?codigo=<?php echo $codigo?>'><input type='button' id='cancelar' name='cancelar' value='PAGINA PRINCIPAL'></a>
+    <a href="../../config/cerar_session.php"><input type="button" id="cancelar" name="cancelar" value="CERRAR SECION"></a>
     <h1 class='elegantshadow'>Floristeria "La Casa de las Flores"</h1>
     </header>
     

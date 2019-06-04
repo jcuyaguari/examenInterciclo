@@ -28,7 +28,7 @@ if(!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE || $_SESSION
 
 <body background="css/correo2.jpg">
     <header>
-
+    <a href="../admin/indexAdministrrador.php"><input type="button" id="cancelar" name="cancelar" value="REGRESAR A INICIO"></a>
     <h1 class='elegantshadow'>ADMINISTRADOR</h1>
     </header>
     <legend>BUSCAR USUARIO</legend>

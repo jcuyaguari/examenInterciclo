@@ -4,15 +4,18 @@ session_start();
 include '../../config/conexionBD.php';
 
 $usuario = isset($_POST["correo"]) ? trim($_POST["correo"]) : null;
-$contraseña = isset($_POST["contraseña"]) ? trim($_POST["contraseña"]) : null;
-if ($usuario == 'root' && $contraseña == "root") {
+$contrasena = isset($_POST["contrasena"]) ? trim($_POST["contrasena"]) : null;
+
+
+if ($usuario == 'root' && $contrasena == "root") {
     $_SESSION['isLogged'] = TRUE;
     $_SESSION['ROL'] = 'ADMIN';
     header("Location:  /examenInterciclo/privada/admin/indexAdministrrador.php");
 } else {
+    $sql = "SELECT * FROM usuario WHERE usu_correo = '$usuario' and usu_password =
+    MD5('$contrasena') ";
 
-    $sql = "SELECT * FROM usuario WHERE usu_correo = '$usuario' and usu_password = MD5('$contraseña') "; 
-    echo "".$contraseña . "sadasdasd";
+    echo "".$contrasena . "sadasdasd";
     echo $sql;
     $result = $conn->query($sql);
     $rows = $result->fetch_assoc();
@@ -27,7 +30,7 @@ if ($usuario == 'root' && $contraseña == "root") {
             header("Location:  /examenInterciclo/publica/menuP/menu.php?codigo=".$rows['usu_codigo']."");
         }
     }else{
-        //header("Location:  /examenInterciclo/publica/user/login.html");
+        header("Location:  /examenInterciclo/publica/user/login.html");
     }
 
     $conn->close();
